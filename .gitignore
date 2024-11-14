@@ -1,0 +1,8 @@
+# tooling
+.astro/
+node_modules/
+
+# generated
+build/
+dist/
+out/
