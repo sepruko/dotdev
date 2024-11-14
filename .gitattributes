@@ -1,0 +1,53 @@
+*							eol=lf
+*.txt						binary
+
+# generated
+*.snap						text	-diff
+build/						binary
+dist/						binary
+out/						binary
+
+# markup
+*.html						text
+*.md						text
+*.mdx						text
+*.svg						text	-diff
+*.yaml						text
+*.yml						text
+
+# source
+*.astro						text
+*.bat						text	eol=crlf
+*.cjs						text
+*.cmd						text	eol=crlf
+*.css						text
+*.cts						text
+*.js						text
+*.json						text
+*.jsx						text
+*.mjs						text
+*.mts						text
+*.ps1						text	eol=crlf	working-tree-encoding=utf-16
+*.ts						text
+*.tsx						text
+
+# tooling
+*.*attributes				text
+*.*ignore					text
+*.*rc						text
+*-dict/src/**.txt			text	linguist-language=ignore
+.vscode/**.json				linguist-language=jsonc
+cspell.config.json			linguist-language=jsonc
+package.json				text	-diff
+pnpm-lock.yaml				text	-diff
+tsconifg.json				linguist-language=jsonc
+
+# binary graphics
+*.apng						binary
+*.gif						binary
+*.ico						binary
+*.jpeg						binary
+*.jpg						binary
+*.jxr						binary
+*.png						binary
+*.webp						binary
