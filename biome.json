@@ -1,0 +1,24 @@
+{
+	"$schema": "node_modules/@biomejs/biome/configuration_schema.json",
+	"extends": [
+		"@sepruko/shared-config/biome/base",
+		"@sepruko/shared-config/biome/css",
+		"@sepruko/shared-config/biome/git",
+		"@sepruko/shared-config/biome/gql",
+		"@sepruko/shared-config/biome/js",
+		"@sepruko/shared-config/biome/json"
+	],
+	"files": {
+		"ignore": [
+			".astro/",
+			"src/env.d.ts"
+		]
+	},
+	"linter": {
+		"rules": {
+			"nursery": {
+				"useComponentExportOnlyModules": "off"
+			}
+		}
+	}
+}
