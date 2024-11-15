@@ -24,7 +24,11 @@
 		"type": "git",
 		"url": "git+https://github.com/sepruko/dev.git"
 	},
-	"scripts": {},
+	"scripts": {
+		"check": "biome check . && prettier -c .",
+		"check:fix": "biome check --write . && prettier -w .",
+		"format": "biome format --write . && prettier -w ."
+	},
 	"devDependencies": {
 		"@biomejs/biome": "~1.9.4",
 		"@sepruko/shared-config": "~0.4.8",
