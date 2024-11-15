@@ -40,7 +40,7 @@ LICENSE						text
 .vscode/**.json				linguist-language=jsonc
 cspell.config.json			linguist-language=jsonc
 package.json				text	-diff
-pnpm-lock.yaml				text	-diff
+pnpm-lock*.yaml				text	-diff
 tsconifg.json				linguist-language=jsonc
 
 # binary graphics
