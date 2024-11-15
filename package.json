@@ -1,17 +1,18 @@
 {
 	"$schema": "https://json.schemastore.org/package",
-	"name": "@sepruko/monorepo-dev",
+	"name": "@sepruko/monorepo-dotdev",
 	"version": "0.1.0",
 	"description": "A monorepository for the sepruko.dev website.",
 	"keywords": [
+		"dotdev",
 		"monorepo",
 		"monorepository",
 		"pnpm",
 		"sepruko",
 		"www"
 	],
-	"homepage": "https://github.com/sepruko/dev#readme",
-	"bugs": "https://github.com/sepruko/dev/issues",
+	"homepage": "https://github.com/sepruko/dotdev#readme",
+	"bugs": "https://github.com/sepruko/dotdev/issues",
 	"license": "MS-PL",
 	"author": "Nat Sepruko <me@sepruko.dev> (https://sepruko.dev/)",
 	"contributors": [],
@@ -22,7 +23,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sepruko/dev.git"
+		"url": "git+https://github.com/sepruko/dotdev.git"
 	},
 	"scripts": {
 		"check": "biome check . && prettier -c .",
