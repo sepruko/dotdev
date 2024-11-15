@@ -1,5 +1,6 @@
 # tooling
 .astro/
+.husky/_/
 node_modules/
 
 # generated

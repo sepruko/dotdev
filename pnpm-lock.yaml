@@ -17,6 +17,9 @@ importers:
       '@sepruko/shared-config':
         specifier: ~0.4.8
         version: 0.4.8(@biomejs/biome@1.9.4)(typescript@5.6.3)
+      husky:
+        specifier: ~9.1.6
+        version: 9.1.6
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -26,6 +29,8 @@ importers:
       typescript:
         specifier: ~5.6.3
         version: 5.6.3
+
+  packages/dict-dotdev: {}
 
 packages:
 
@@ -106,6 +111,11 @@ packages:
       vitest:
         optional: true
 
+  husky@9.1.6:
+    resolution: {integrity: sha512-sqbjZKK7kf44hfdE94EoX8MZNk0n7HeW37O4YrVGCF4wzgQjp+akPAkfUK5LZ6KuR/6sqeAVuXHji+RzQgOn5A==, tarball: https://registry.npmjs.org/husky/-/husky-9.1.6.tgz}
+    engines: {node: '>=18'}
+    hasBin: true
+
   prettier-plugin-astro@0.14.1:
     resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==, tarball: https://registry.npmjs.org/prettier-plugin-astro/-/prettier-plugin-astro-0.14.1.tgz}
     engines: {node: ^14.15.0 || >=16.0.0}
@@ -172,6 +182,8 @@ snapshots:
     optionalDependencies:
       '@biomejs/biome': 1.9.4
       typescript: 5.6.3
+
+  husky@9.1.6: {}
 
   prettier-plugin-astro@0.14.1:
     dependencies:
