@@ -1,0 +1,46 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "@sepruko/monorepo-dev",
+	"version": "0.1.0",
+	"description": "A monorepository for the sepruko.dev website.",
+	"keywords": [
+		"monorepo",
+		"monorepository",
+		"pnpm",
+		"sepruko",
+		"www"
+	],
+	"homepage": "https://github.com/sepruko/dev#readme",
+	"bugs": "https://github.com/sepruko/dev/issues",
+	"license": "MS-PL",
+	"author": "Nat Sepruko <me@sepruko.dev> (https://sepruko.dev/)",
+	"contributors": [],
+	"files": [],
+	"type": "module",
+	"exports": {
+		"./package.json": "./package.json"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sepruko/dev.git"
+	},
+	"scripts": {},
+	"devDependencies": {
+		"@sepruko/shared-config": "~0.4.8",
+		"typescript": "^5.6.3"
+	},
+	"engines": {
+		"node": ">=22.11.0",
+		"pnpm": "^9.13.0"
+	},
+	"devEngines": {
+		"node": ">=22.11.0",
+		"pnpm": "^9.13.0"
+	},
+	"private": true,
+	"pnpm": {
+		"overrides": {
+			"typescript": "$typescript"
+		}
+	}
+}
