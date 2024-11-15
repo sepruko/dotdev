@@ -1,0 +1,21 @@
+# generated
+*.snap
+build/
+dist/
+out/
+
+# source
+*.cjs
+*.css
+*.cts
+*.js
+*.json
+*.jsx
+*.mjs
+*.mts
+*.ts
+*.tsx
+
+# tooling
+node_modules/
+pnpm-lock*.yaml

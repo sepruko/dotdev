@@ -14,14 +14,23 @@ importers:
       '@sepruko/shared-config':
         specifier: ~0.4.8
         version: 0.4.8(typescript@5.6.3)
+      prettier:
+        specifier: ^3.3.3
+        version: 3.3.3
+      prettier-plugin-astro:
+        specifier: ~0.14.1
+        version: 0.14.1
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
 
 packages:
 
+  '@astrojs/compiler@2.10.3':
+    resolution: {integrity: sha512-bL/O7YBxsFt55YHU021oL+xz+B/9HvGNId3F9xURN16aeqDK9juHGktdkCSXz+U4nqFACq6ZFvWomOzhV+zfPw==, tarball: https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.10.3.tgz}
+
   '@sepruko/shared-config@0.4.8':
-    resolution: {integrity: sha512-vm2wZhYbnoXf/PR4CwhY7Kelr7pdcRWdtdLMvkt+DgVCqnfKc2j8FTuI6ITdBysk2vML0uKHupkGXCSZPMev8Q==}
+    resolution: {integrity: sha512-vm2wZhYbnoXf/PR4CwhY7Kelr7pdcRWdtdLMvkt+DgVCqnfKc2j8FTuI6ITdBysk2vML0uKHupkGXCSZPMev8Q==, tarball: https://registry.npmjs.org/@sepruko/shared-config/-/shared-config-0.4.8.tgz}
     engines: {pnpm: ^9.12.1}
     peerDependencies:
       '@biomejs/biome': ~1.9.4
@@ -41,15 +50,53 @@ packages:
       vitest:
         optional: true
 
+  prettier-plugin-astro@0.14.1:
+    resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==, tarball: https://registry.npmjs.org/prettier-plugin-astro/-/prettier-plugin-astro-0.14.1.tgz}
+    engines: {node: ^14.15.0 || >=16.0.0}
+
+  prettier@3.3.3:
+    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==, tarball: https://registry.npmjs.org/prettier/-/prettier-3.3.3.tgz}
+    engines: {node: '>=14'}
+    hasBin: true
+
+  s.color@0.0.15:
+    resolution: {integrity: sha512-AUNrbEUHeKY8XsYr/DYpl+qk5+aM+DChopnWOPEzn8YKzOhv4l2zH6LzZms3tOZP3wwdOyc0RmTciyi46HLIuA==, tarball: https://registry.npmjs.org/s.color/-/s.color-0.0.15.tgz}
+
+  sass-formatter@0.7.9:
+    resolution: {integrity: sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==, tarball: https://registry.npmjs.org/sass-formatter/-/sass-formatter-0.7.9.tgz}
+
+  suf-log@2.5.3:
+    resolution: {integrity: sha512-KvC8OPjzdNOe+xQ4XWJV2whQA0aM1kGVczMQ8+dStAO6KfEB140JEVQ9dE76ONZ0/Ylf67ni4tILPJB41U0eow==, tarball: https://registry.npmjs.org/suf-log/-/suf-log-2.5.3.tgz}
+
   typescript@5.6.3:
-    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
+    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==, tarball: https://registry.npmjs.org/typescript/-/typescript-5.6.3.tgz}
     engines: {node: '>=14.17'}
     hasBin: true
 
 snapshots:
 
+  '@astrojs/compiler@2.10.3': {}
+
   '@sepruko/shared-config@0.4.8(typescript@5.6.3)':
     optionalDependencies:
       typescript: 5.6.3
+
+  prettier-plugin-astro@0.14.1:
+    dependencies:
+      '@astrojs/compiler': 2.10.3
+      prettier: 3.3.3
+      sass-formatter: 0.7.9
+
+  prettier@3.3.3: {}
+
+  s.color@0.0.15: {}
+
+  sass-formatter@0.7.9:
+    dependencies:
+      suf-log: 2.5.3
+
+  suf-log@2.5.3:
+    dependencies:
+      s.color: 0.0.15
 
   typescript@5.6.3: {}
