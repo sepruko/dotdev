@@ -1,0 +1,26 @@
+{
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/refs/tags/v8.16.0/cspell.schema.json",
+	"name": "@sepruko/monorepo-dotdev",
+	"version": "0.2",
+	"description": "CSpell configuration for the @sepruko/monorepo-dotdev project.",
+	"cache": {
+		"cacheLocation": "node_modules/.cache/cspell/cache.json",
+		"useCache": true
+	},
+	"ignorePaths": [
+		"packages/dict-*/src/**.txt"
+	],
+	"import": [
+		"@sepruko/dict-dotdev",
+		"@sepruko/shared-config/cspell"
+	],
+	"reporters": [
+		"default",
+		[
+			"@cspell/cspell-json-reporter",
+			{
+				"outFile": "node_modules/.cache/cspell/report.json"
+			}
+		]
+	]
+}

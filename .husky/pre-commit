@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+# cspell:words ACMR euo
+
 set -euo pipefail
 IFS=$'\n\t'
 
 modified=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
 if [[ -n $modified ]]; then
 	biome check --no-errors-on-unmatched --write $modified
+	cspell lint --words-only --unique $modified
 	prettier -u -w $modified
 fi
 
