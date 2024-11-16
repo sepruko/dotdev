@@ -1,0 +1,11 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": [
+		"@sepruko/shared-config/tsconfig/node"
+	],
+	"include": [
+		"${configDir}/*",
+		"${configDir}/.github/workflows/**/*",
+		"${configDir}/.husky/**/*"
+	]
+}

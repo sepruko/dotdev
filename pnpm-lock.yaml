@@ -16,7 +16,10 @@ importers:
         version: 1.9.4
       '@sepruko/shared-config':
         specifier: ~0.4.8
-        version: 0.4.8(@biomejs/biome@1.9.4)(cspell@8.16.0)(typescript@5.6.3)
+        version: 0.4.8(@biomejs/biome@1.9.4)(@types/node@22.9.0)(cspell@8.16.0)(typescript@5.6.3)
+      '@types/node':
+        specifier: ^22.9.0
+        version: 22.9.0
       cspell:
         specifier: ^8.16.0
         version: 8.16.0
@@ -331,6 +334,9 @@ packages:
       vitest:
         optional: true
 
+  '@types/node@22.9.0':
+    resolution: {integrity: sha512-vuyHg81vvWA1Z1ELfvLko2c8f34gyA0zaic0+Rllc5lbCnbSyuvb2Oxpm6TAUAC/2xZN3QGqxBNggD1nNR2AfQ==, tarball: https://registry.npmjs.org/@types/node/-/node-22.9.0.tgz}
+
   array-timsort@1.0.3:
     resolution: {integrity: sha512-/+3GRL7dDAGEfM6TseQk/U+mi18TU2Ms9I3UlLdUMhz2hbvGNTKdj9xniwXfUqgYhHxRx0+8UnKkvlNwVU+cWQ==, tarball: https://registry.npmjs.org/array-timsort/-/array-timsort-1.0.3.tgz}
 
@@ -556,6 +562,9 @@ packages:
     resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==, tarball: https://registry.npmjs.org/typescript/-/typescript-5.6.3.tgz}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  undici-types@6.19.8:
+    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==, tarball: https://registry.npmjs.org/undici-types/-/undici-types-6.19.8.tgz}
 
   vscode-languageserver-textdocument@1.0.12:
     resolution: {integrity: sha512-cxWNPesCnQCcMPeenjKKsOCKQZ/L6Tv19DTRIGuLWe32lyzWhihGVJ/rcckZXJxfdKCFvRLS3fpBIsV/ZGX4zA==, tarball: https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.12.tgz}
@@ -812,11 +821,16 @@ snapshots:
 
   '@cspell/url@8.16.0': {}
 
-  '@sepruko/shared-config@0.4.8(@biomejs/biome@1.9.4)(cspell@8.16.0)(typescript@5.6.3)':
+  '@sepruko/shared-config@0.4.8(@biomejs/biome@1.9.4)(@types/node@22.9.0)(cspell@8.16.0)(typescript@5.6.3)':
     optionalDependencies:
       '@biomejs/biome': 1.9.4
+      '@types/node': 22.9.0
       cspell: 8.16.0
       typescript: 5.6.3
+
+  '@types/node@22.9.0':
+    dependencies:
+      undici-types: 6.19.8
 
   array-timsort@1.0.3: {}
 
@@ -1049,6 +1063,8 @@ snapshots:
       is-number: 7.0.0
 
   typescript@5.6.3: {}
+
+  undici-types@6.19.8: {}
 
   vscode-languageserver-textdocument@1.0.12: {}
 
