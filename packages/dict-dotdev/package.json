@@ -33,7 +33,7 @@
 	},
 	"scripts": {},
 	"peerDependencies": {
-		"cspell": "~8.16.0"
+		"cspell": "^8.16.0"
 	},
 	"engines": {
 		"node": ">=22.11.0",
