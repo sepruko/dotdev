@@ -50,6 +50,11 @@
 	},
 	"private": true,
 	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@biomejs/biome",
+			"esbuild",
+			"sharp"
+		],
 		"overrides": {
 			"typescript": "$typescript"
 		}
