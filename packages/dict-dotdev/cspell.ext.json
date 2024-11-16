@@ -13,21 +13,21 @@
 			"name": "dotdev",
 			"description": "Words, terms & phrases used by the @sepruko/monorepo-dotdev project.",
 			"type": "W",
-			"path": "src/dotdev.txt",
+			"path": "dict/dotdev.txt",
 			"useCompounds": true
 		},
 		{
 			"name": "dotdev-contributors",
 			"description": "The names of contributors to the @sepruko/monorepo-dotdev project.",
 			"type": "W",
-			"path": "src/dotdev-contributors.txt",
+			"path": "dict/dotdev-contributors.txt",
 			"useCompounds": true
 		},
 		{
 			"name": "dotdev-dependencies",
 			"description": "Words, terms, names & phrases used by dependencies of the @sepruko/monorepo-dotdev project.",
 			"type": "W",
-			"path": "src/dotdev-dependencies.txt",
+			"path": "dict/dotdev-dependencies.txt",
 			"useCompounds": true
 		}
 	]

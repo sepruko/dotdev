@@ -17,7 +17,7 @@
 	"contributors": [],
 	"files": [
 		"cspell.ext.json",
-		"src/**.txt"
+		"dict/**.txt"
 	],
 	"type": "module",
 	"exports": {
