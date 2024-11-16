@@ -1,0 +1,34 @@
+{
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/refs/tags/v8.16.0/cspell.schema.json",
+	"name": "@sepruko/dict-dotdev",
+	"version": "0.2",
+	"description": "CSpell dictionaries for the @sepruko/monorepo-dotdev project.",
+	"dictionaries": [
+		"dotdev",
+		"dotdev-contributors",
+		"dotdev-dependencies"
+	],
+	"dictionaryDefinitions": [
+		{
+			"name": "dotdev",
+			"description": "Words, terms & phrases used by the @sepruko/monorepo-dotdev project.",
+			"type": "W",
+			"path": "src/dotdev.txt",
+			"useCompounds": true
+		},
+		{
+			"name": "dotdev-contributors",
+			"description": "The names of contributors to the @sepruko/monorepo-dotdev project.",
+			"type": "W",
+			"path": "src/dotdev-contributors.txt",
+			"useCompounds": true
+		},
+		{
+			"name": "dotdev-dependencies",
+			"description": "Words, terms, names & phrases used by dependencies of the @sepruko/monorepo-dotdev project.",
+			"type": "W",
+			"path": "src/dotdev-dependencies.txt",
+			"useCompounds": true
+		}
+	]
+}

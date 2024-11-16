@@ -1,0 +1,47 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "@sepruko/dict-dotdev",
+	"version": "0.1.0",
+	"description": "A dictionary for the sepruko.dev website monorepository.",
+	"keywords": [
+		"cspell",
+		"dict",
+		"dictionary",
+		"dotdev",
+		"www"
+	],
+	"homepage": "https://github.com/sepruko/dotdev/tree/main/packages/dict-dotdev#readme",
+	"bugs": "https://github.com/sepruko/dotdev/issues",
+	"license": "MS-PL",
+	"author": "Nat Sepruko <me@sepruko.dev> (https://sepruko.dev/)",
+	"contributors": [],
+	"files": [
+		"cspell.ext.json",
+		"src/**.txt"
+	],
+	"type": "module",
+	"exports": {
+		".": "./cspell.ext.json",
+		"./cspell": "./cspell.ext.json",
+		"./cspell.ext.json": "./cspell.ext.json",
+		"./package.json": "./package.json"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sepruko/dotdev.git",
+		"directory": "packages/dict-dotdev"
+	},
+	"scripts": {},
+	"peerDependencies": {
+		"cspell": "~8.16.0"
+	},
+	"engines": {
+		"node": ">=22.11.0",
+		"pnpm": "^9.13.0"
+	},
+	"devEngines": {
+		"node": ">=22.11.0",
+		"pnpm": "^9.13.0"
+	},
+	"private": true
+}

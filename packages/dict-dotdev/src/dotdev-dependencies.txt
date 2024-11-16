@@ -1,0 +1,12 @@
+# tooling
+ANSI				ansi
+		Anson
+ASTRO	Astro		astro
+		Iconify		iconify
+JSR					jsr
+		UnifiedJS	unifiedjs
+		UnoCSS		unocss
+
+# filetypes
+APNG				apng
+JXR					jxr
