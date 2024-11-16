@@ -8,7 +8,7 @@ IFS=$'\n\t'
 modified=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
 if [[ -n $modified ]]; then
 	biome check --no-errors-on-unmatched --write $modified
-	cspell lint --words-only --unique $modified
+	cspell lint --no-must-find-files --unique --words-only $modified
 	prettier -u -w $modified
 fi
 
