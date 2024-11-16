@@ -42,7 +42,7 @@ cspell.config.json			linguist-language=jsonc
 cspell.ext.json				linguist-language=jsonc
 package.json				text	-diff
 pnpm-lock*.yaml				text	-diff
-tsconifg.json				linguist-language=jsonc
+tsconfig.json				linguist-language=jsonc
 
 # binary graphics
 *.apng						binary
