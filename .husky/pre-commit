@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-IFS=$'\n'
+IFS=$'\n\t'
 
 modified=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
-
-biome check --write .
-prettier -u -w $modified
+if [[ -n $modified ]]; then
+	biome check --no-errors-on-unmatched --write $modified
+	prettier -u -w $modified
+fi
 
 git update-index -g
