@@ -12,7 +12,7 @@
 	],
 	"homepage": "https://github.com/sepruko/dotdev/tree/main/packages/dict-dotdev#readme",
 	"bugs": "https://github.com/sepruko/dotdev/issues",
-	"license": "MS-PL",
+	"license": "CC0-1.0",
 	"author": "Nat Sepruko <me@sepruko.dev> (https://sepruko.dev/)",
 	"contributors": [],
 	"files": [
