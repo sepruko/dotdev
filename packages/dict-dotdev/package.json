@@ -40,8 +40,16 @@
 		"pnpm": "^9.13.0"
 	},
 	"devEngines": {
-		"node": ">=22.11.0",
-		"pnpm": "^9.13.0"
+		"runtime": {
+			"name": "node",
+			"version": ">=22.11.0",
+			"onFail": "error"
+		},
+		"packageManager": {
+			"name": "pnpm",
+			"version": "^9.13.0",
+			"onFail": "error"
+		}
 	},
 	"private": true
 }
