@@ -8,7 +8,8 @@
 		"useCache": true
 	},
 	"ignorePaths": [
-		"packages/dict-*/src/**.txt"
+		"apps/**/dict/**.txt",
+		"packages/**/dict/**.txt"
 	],
 	"import": [
 		"@sepruko/dict-dotdev",
