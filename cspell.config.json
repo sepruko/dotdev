@@ -13,7 +13,7 @@
 	],
 	"import": [
 		"@sepruko/dict-dotdev",
-		"@sepruko/shared-config/cspell"
+		"@sepruko/config/cspell"
 	],
 	"reporters": [
 		"default",

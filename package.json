@@ -33,7 +33,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "~1.9.4",
-		"@sepruko/shared-config": "~0.4.8",
+		"@sepruko/config": "~0.5.2",
 		"@types/node": "^22.9.0",
 		"cspell": "^8.16.0",
 		"husky": "^9.1.6",
