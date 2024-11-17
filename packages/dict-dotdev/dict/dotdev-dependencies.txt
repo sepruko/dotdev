@@ -1,12 +1,20 @@
 # tooling
 ANSI				ansi
 		Anson
+		AstroJS		astrojs
 ASTRO	Astro		astro
+		Attributify	attributify
 		Iconify		iconify
 JSR					jsr
+OG					og
+		Tabler		tabler
 		UnifiedJS	unifiedjs
+		Uno			uno
 		UnoCSS		unocss
 
 # filetypes
 APNG				apng
 JXR					jxr
+
+# fonts
+		Gantari
