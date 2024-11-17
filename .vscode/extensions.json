@@ -1,0 +1,16 @@
+{
+	"recommendations": [
+		"antfu.iconify",
+		"antfu.unocss",
+		"astro-build.astro-vscode",
+		"biomejs.biome",
+		"EditorConfig.EditorConfig",
+		"esbenp.prettier-vscode",
+		"streetsidesoftware.code-spell-checker",
+		"unifiedjs.vscode-mdx"
+	],
+	"unwantedRecommendations": [
+		"DavidAnson.vscode-markdownlint",
+		"GitHub.copilot"
+	]
+}

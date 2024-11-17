@@ -1,0 +1,120 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "check",
+			"detail": "Perform checks on source and markup files",
+			"icon": {
+				"color": "terminal.ansiWhite",
+				"id": "search-fuzzy"
+			},
+			"dependsOn": [
+				"check:biome",
+				"check:cspell",
+				"check:prettier"
+			]
+		},
+		{
+			"label": "check:fix",
+			"detail": "Perform checks and fix problems in source and markup files",
+			"icon": {
+				"color": "terminal.ansiGreen",
+				"id": "check-all"
+			},
+			"dependsOn": [
+				"check:fix:biome",
+				"check:fix:prettier"
+			]
+		},
+		{
+			"label": "format",
+			"detail": "Perform formatting on source and markup files",
+			"icon": {
+				"color": "terminal.ansiCyan",
+				"id": "sparkle-filled"
+			},
+			"dependsOn": [
+				"format:biome",
+				"check:fix:prettier"
+			]
+		},
+		{
+			"label": "check:biome",
+			"type": "shell",
+			"hide": true,
+			"command": "biome check --verbose .",
+			"presentation": {
+				"reveal": "silent",
+				"showReuseMessage": false,
+				"clear": true
+			}
+		},
+		{
+			"label": "check:cspell",
+			"type": "shell",
+			"hide": true,
+			"command": "cspell lint -u --words-only .",
+			"presentation": {
+				"reveal": "silent",
+				"showReuseMessage": false,
+				"clear": true
+			}
+		},
+		{
+			"label": "check:prettier",
+			"type": "shell",
+			"hide": true,
+			"command": "prettier -c .",
+			"presentation": {
+				"reveal": "silent",
+				"showReuseMessage": false,
+				"clear": true
+			}
+		},
+		{
+			"label": "check:fix:biome",
+			"type": "shell",
+			"hide": true,
+			"command": "biome check --verbose --write .",
+			"presentation": {
+				"reveal": "silent",
+				"showReuseMessage": false,
+				"clear": true
+			}
+		},
+		{
+			"label": "check:fix:prettier",
+			"type": "shell",
+			"hide": true,
+			"command": "prettier -w .",
+			"presentation": {
+				"reveal": "silent",
+				"showReuseMessage": false,
+				"clear": true
+			}
+		},
+		{
+			"label": "format:biome",
+			"type": "shell",
+			"hide": true,
+			"command": "biome format --verbose --write .",
+			"presentation": {
+				"reveal": "silent",
+				"showReuseMessage": false,
+				"clear": true
+			}
+		}
+	],
+	"options": {
+		"env": {
+			"PATH": "node_modules/.bin/:${env:PATH}"
+		}
+	},
+	"windows": {
+		"options": {
+			"env": {
+				"PATH": "${env:PATH};node_modules/.bin/"
+			}
+		}
+	}
+}
