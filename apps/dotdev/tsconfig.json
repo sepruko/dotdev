@@ -1,0 +1,30 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": [
+		"@sepruko/config/typescript/browser",
+		"@sepruko/config/typescript/strict"
+	],
+	"compilerOptions": {
+		"jsx": "preserve",
+		"jsxImportSource": "solid-js",
+		"paths": {
+			"@/components/*": [
+				"./components/astro/*.astro"
+			],
+			"@/components/solid/*": [
+				"./components/solid/*"
+			],
+			"@/layouts/*": [
+				"./layouts/*.astro"
+			],
+			"@/pages/*": [
+				"./pages/*.astro"
+			]
+		}
+	},
+	"references": [
+		{
+			"path": "tsconfig.root.json"
+		}
+	]
+}

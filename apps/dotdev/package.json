@@ -1,0 +1,76 @@
+{
+	"$schema": "https://json.schemastore.org/package",
+	"name": "@sepruko/dotdev",
+	"version": "0.1.0",
+	"description": "Personal website for Nat Sepruko.",
+	"keywords": [
+		"astro",
+		"dotdev",
+		"solid",
+		"solid-js",
+		"unocss",
+		"www"
+	],
+	"homepage": "https://github.com/sepruko/dotdev/tree/main/apps/dotdev#readme",
+	"bugs": "https://github.com/sepruko/dotdev/issues",
+	"license": "MS-PL",
+	"author": "Nat Sepruko <me@sepruko.dev> (https://sepruko.dev/)",
+	"contributors": [],
+	"files": [
+		"astro.config.ts",
+		"build/**",
+		"tsconfig.json",
+		"tsconfig.root.json"
+	],
+	"type": "module",
+	"exports": {
+		"./package.json": "./package.json"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sepruko/dotdev.git",
+		"directory": "apps/dotdev"
+	},
+	"scripts": {
+		"build": "astro build",
+		"dev": "astro dev",
+		"prepare": "astro sync",
+		"preview": "astro build && astro preview"
+	},
+	"devDependencies": {
+		"@astrojs/mdx": "^3.1.9",
+		"@astrojs/solid-js": "^4.4.3",
+		"@iconify-json/tabler": "^1.2.8",
+		"@sepruko/config": "~0.5.2",
+		"@types/node": "^22.9.0",
+		"@unocss/astro": "~0.64.1",
+		"@unocss/core": "~0.64.1",
+		"@unocss/preset-attributify": "~0.64.1",
+		"@unocss/preset-icons": "~0.64.1",
+		"@unocss/preset-uno": "~0.64.1",
+		"@unocss/preset-web-fonts": "~0.64.1",
+		"@unocss/transformer-directives": "~0.64.1",
+		"@unocss/transformer-variant-group": "~0.64.1",
+		"astro": "^4.16.13",
+		"solid-devtools": "~0.30.1",
+		"solid-js": "^1.9.3",
+		"typescript": "~5.6.3"
+	},
+	"engines": {
+		"node": ">=22.11.0",
+		"pnpm": "^9.13.0"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": ">=22.11.0",
+			"onFail": "error"
+		},
+		"packageManager": {
+			"name": "pnpm",
+			"version": "^9.13.0",
+			"onFail": "error"
+		}
+	},
+	"private": true
+}

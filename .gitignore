@@ -4,6 +4,7 @@
 node_modules/
 
 # generated
+/apps/dotdev/src/env.d.ts
 build/
 dist/
 out/

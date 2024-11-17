@@ -1,0 +1,23 @@
+---
+
+---
+
+<html lang="en-US" prefix="og: https://ogp.me/ns#">
+	<body bg="white dark:black" c="black dark:white">
+		{
+			Astro.slots.has("header") && (
+				<header>
+					<slot id="header" />
+				</header>
+			)
+		}
+		<main><slot /></main>
+		{
+			Astro.slots.has("footer") && (
+				<footer>
+					<slot id="footer" />
+				</footer>
+			)
+		}
+	</body>
+</html>

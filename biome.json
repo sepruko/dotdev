@@ -10,6 +10,7 @@
 	],
 	"files": {
 		"ignore": [
+			"*.astro",
 			".astro/",
 			"src/env.d.ts"
 		]
