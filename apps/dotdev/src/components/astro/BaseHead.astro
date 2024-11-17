@@ -1,0 +1,59 @@
+---
+import type { OpenGraphProps } from "@/components/OpenGraph";
+import OpenGraph from "@/components/OpenGraph";
+
+/**
+ * Properties to pass to the `BaseHead` component.
+ */
+interface Props {
+	/**
+	 * The title of the webpage.
+	 *
+	 * @note
+	 * This is used for the `<title>` tag, as well as a default for
+	 * {@linkcode OpenGraphProps.title og.title}.
+	 */
+	title?: string;
+
+	/**
+	 * The description of the webpage.
+	 *
+	 * @note
+	 * This is used in the meta information, including as a default for
+	 * {@linkcode OpenGraphProps.title og.title}.
+	 */
+	description?: string;
+
+	/**
+	 * A list of keywords to use.
+	 *
+	 * @note
+	 * When supplying an array whose `length` is `0`, no meta information will
+	 * be rendered as this value is skipped.
+	 */
+	keywords?: string[];
+
+	/**
+	 * The {@link https://ogp.me/ OpenGraph protocol} information.
+	 *
+	 * @note
+	 * Set to `false` to disable.
+	 */
+	og?: false | OpenGraphProps;
+}
+
+export type { Props as BaseHeadProps };
+
+const { title = "sepruko.dev", description, keywords, og = { title, description } } = Astro.props;
+---
+
+<head>
+	<slot id="pre" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>{title}</title>
+	{description && <meta name="description" content={description} />}
+	{keywords?.length && <meta name="keywords" content={keywords.sort().join(", ")} />}
+	{og && <OpenGraph {...og} title={og.title ?? title} description={og.description ?? title} />}
+	<slot />
+</head>

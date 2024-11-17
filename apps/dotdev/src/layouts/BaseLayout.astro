@@ -1,8 +1,18 @@
 ---
+import BaseHead, { type BaseHeadProps } from "@/components/BaseHead";
 
+/**
+ * Properties to pass to the {@linkcode BaseLayout} layout.
+ */
+interface Props extends BaseHeadProps {}
+
+export type { Props as BaseLayoutProps };
+
+const { ...props } = Astro.props;
 ---
 
 <html lang="en-US" prefix="og: https://ogp.me/ns#">
+	<BaseHead {...props} />
 	<body bg="white dark:black" c="black dark:white">
 		{
 			Astro.slots.has("header") && (
@@ -19,5 +29,5 @@
 				</footer>
 			)
 		}
-	</body>
+	</body>{/* for idyllic formatting --> */}<Fragment></Fragment>
 </html>

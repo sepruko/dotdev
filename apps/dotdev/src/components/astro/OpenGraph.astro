@@ -1,0 +1,17 @@
+---
+import type { BaseHeadProps } from "@/components/BaseHead";
+
+/**
+ * Properties to pass to the `OpenGraph` component.
+ */
+interface Props extends Required<Pick<BaseHeadProps, "title" | "description">> {}
+
+export type { Props as OpenGraphProps };
+
+const { title, description } = Astro.props;
+---
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
