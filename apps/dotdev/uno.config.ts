@@ -13,7 +13,7 @@ export default {
 			getCSS: (): string =>
 				`
 				:root {
-					@apply font-mono;
+					@apply font-sans;
 				}
 
 				:where(*, ::before, ::after)[background-color*="dark:"],
@@ -38,6 +38,18 @@ export default {
 				code,
 				pre {
 					@apply font-mono
+				}
+
+				details:not(:has(> summary)) {
+					@apply c-red;
+				}
+
+				fieldset {
+					@apply b-current rd-1;
+				}
+
+				summary {
+					@apply after:([details>&]:content-[(click&#32;to&#32;expand)] [details[open]>&]:content-[(click&#32;to&#32;collapse)] c-raisinblack-200 m-l-2 text-size-0.8em);
 				}
 				`
 					.trim()
@@ -69,6 +81,26 @@ export default {
 				mono: "JetBrains Mono:100,400,700,900",
 			},
 		}),
+	],
+	rules: [
+		[
+			/^content-?\[(.+)\]$/,
+			function* ([, content]): Generator<string | CSSValueInput> {
+				if (content!.match(/^".*"$/)) {
+					content = content!.slice(1, -1);
+				}
+
+				yield {
+					content: `"${content!.replace(/"/g, '\\"').replace(/&#(\d+);/g, (_, c) => String.fromCharCode(+c))}"`,
+				};
+			},
+		],
+	],
+	shortcuts: [
+		[
+			/^(?:size-?)?(w|width|h|height)-?(min|max)-?(.+)$/,
+			([, rule, limit, value]) => `${limit}-${rule![0]}-${value}`,
+		],
 	],
 	theme: {
 		colors: {
@@ -119,5 +151,5 @@ export default {
 			"box-sizing": "border-box",
 		} satisfies CSSValueInput,
 	},
-	transformers: [transformerDirectives(), transformerVariantGroup({ separators: [":"] })],
+	transformers: [transformerDirectives(), transformerVariantGroup()],
 } as UnoUserConfig<Theme>;
