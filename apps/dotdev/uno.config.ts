@@ -22,9 +22,9 @@ export default {
 				:where(*, ::before, ::after)[c*="dark:"],
 				:where(*, ::before, ::after)[color*="dark:"] {
 					transition:
-						background-color 1s ease,
-						border-color 1s ease,
-						color 1s ease
+						background-color 825ms ease,
+						border-color 825ms ease,
+						color 825ms ease
 				}
 
 				:where(a) {
