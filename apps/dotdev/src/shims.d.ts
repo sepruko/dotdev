@@ -2,7 +2,9 @@ import type { AttributifyAttributes } from "@unocss/preset-attributify";
 
 declare module "@unocss/preset-attributify" {
 	interface AttributifyAttributes {
+		b?: string | boolean;
 		c?: string | boolean;
+		self?: string | boolean;
 	}
 }
 
