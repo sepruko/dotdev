@@ -5,7 +5,15 @@
 		"link": "/LICENSE"
 	},
 	"entity": {
-		"name": "Nat Sepruko",
+		"name": "Nat",
+		"full_name": "Nat Sepruko",
+		"pronouns": {
+			"associative": "theirs",
+			"object": "her",
+			"object_self": "herself",
+			"possessive": "their",
+			"reference": "she"
+		},
 		"link": "/"
 	},
 	"nav_links": [

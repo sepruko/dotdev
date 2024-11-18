@@ -61,11 +61,24 @@
 					"type": "string",
 					"description": "The name of the entity.",
 					"examples": [
+						"Jane",
+						"John",
+						"Johnny",
+						"Nat"
+					]
+				},
+				"full_name": {
+					"type": "string",
+					"description": "The full name of the entity.",
+					"examples": [
 						"Jane Doe",
 						"John Doe",
 						"Johnny Appleseed",
 						"Nat Sepruko"
 					]
+				},
+				"pronouns": {
+					"$ref": "#/definitions/DotDevPronouns"
 				},
 				"link": {
 					"type": "string",
@@ -82,7 +95,66 @@
 				}
 			},
 			"required": [
-				"name"
+				"name",
+				"full_name",
+				"pronouns"
+			]
+		},
+		"DotDevPronouns": {
+			"type": "object",
+			"properties": {
+				"associative": {
+					"type": "string",
+					"description": "The pronoun used for showing association.",
+					"examples": [
+						"hers",
+						"his",
+						"theirs"
+					]
+				},
+				"object": {
+					"type": "string",
+					"description": "The pronoun used for referring to the entity as the object.",
+					"examples": [
+						"her",
+						"him",
+						"them"
+					]
+				},
+				"object_self": {
+					"type": "string",
+					"description": "The pronoun used for referring to the entity as the object doing unto itself.",
+					"examples": [
+						"herself",
+						"himself",
+						"themselves"
+					]
+				},
+				"possessive": {
+					"type": "string",
+					"description": "The pronoun used for showing possession.",
+					"examples": [
+						"her",
+						"his",
+						"their"
+					]
+				},
+				"reference": {
+					"type": "string",
+					"description": "The pronoun used for referring to the entity.",
+					"examples": [
+						"she",
+						"he",
+						"they"
+					]
+				}
+			},
+			"required": [
+				"associative",
+				"object",
+				"object_self",
+				"possessive",
+				"reference"
 			]
 		},
 		"DotDevNavLinks": {

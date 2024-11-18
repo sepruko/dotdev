@@ -69,10 +69,49 @@ declare global {
 		name: string;
 
 		/**
+		 * The full name of the entity.
+		 */
+		// biome-ignore lint/style/useNamingConvention: Match schema.
+		full_name: string;
+
+		/**
+		 * The pronouns used by the entity.
+		 */
+		pronouns: DotDevPronouns;
+
+		/**
 		 * A URI reference that leads to a WWW application controlled by the
 		 * entity.
 		 */
 		link?: string;
+	}
+
+	export declare interface DotDevPronouns {
+		/**
+		 * The pronoun used for showing association.
+		 */
+		associative: string;
+
+		/**
+		 * The pronoun used for referring to the entity as the object.
+		 */
+		object: string;
+
+		/**
+		 * The pronoun used for referring to the entity as the object doing unto itself.
+		 */
+		// biome-ignore lint/style/useNamingConvention: Match schema.
+		object_self: string;
+
+		/**
+		 * The pronoun used for showing possession.
+		 */
+		possessive: string;
+
+		/**
+		 * The pronoun used for referring to the entity.
+		 */
+		reference: string;
 	}
 
 	/**
