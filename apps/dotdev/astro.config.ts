@@ -2,8 +2,14 @@ import mdx from "@astrojs/mdx";
 import solid from "@astrojs/solid-js";
 import unocss from "@unocss/astro";
 import type { AstroUserConfig } from "astro/config";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+import { cwd } from "node:process";
 
 // cspell:words mpa
+
+// biome-ignore lint/style/useNamingConvention: No.
+const DotDev = await readFile(join(cwd(), "dotdev.config.json"), { encoding: "utf-8", flag: "a+" });
 
 export default {
 	build: {
@@ -52,6 +58,6 @@ export default {
 	site: "https://sepruko.dev/",
 	vite: {
 		appType: "mpa",
-		define: {},
+		define: { DotDev },
 	},
 } as AstroUserConfig;

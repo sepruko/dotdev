@@ -1,0 +1,223 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://sepruko.dev/schemas/dotdev.json",
+	"$ref": "#/definitions/DotDevConfiguration",
+	"definitions": {
+		"DotDevConfiguration": {
+			"type": "object",
+			"description": "The configuration schema used by the website.",
+			"properties": {
+				"copyright": {
+					"$ref": "#/definitions/DotDevCopyright"
+				},
+				"entity": {
+					"$ref": "#/definitions/DotDevEntity"
+				},
+				"nav_links": {
+					"$ref": "#/definitions/DotDevNavLinks"
+				},
+				"socials": {
+					"$ref": "#/definitions/DotDevSocials"
+				}
+			},
+			"required": [
+				"copyright",
+				"entity",
+				"nav_links"
+			]
+		},
+		"DotDevCopyright": {
+			"type": "object",
+			"description": "The copyright document for the website.",
+			"properties": {
+				"name": {
+					"type": "string",
+					"description": "The identifying name of the legal document.",
+					"examples": [
+						"Ms-PL",
+						"CC0-1.0"
+					]
+				},
+				"link": {
+					"type": "string",
+					"description": "A URI reference that leads to the legal document.",
+					"format": "uri-reference",
+					"examples": [
+						"/LICENSE",
+						"https://sepruko.dev/LICENSE",
+						"https://nat.sepruko.dev/LICENSE"
+					]
+				}
+			},
+			"required": [
+				"name"
+			]
+		},
+		"DotDevEntity": {
+			"type": "object",
+			"description": "An entity that has control over the website.",
+			"properties": {
+				"name": {
+					"type": "string",
+					"description": "The name of the entity.",
+					"examples": [
+						"Jane Doe",
+						"John Doe",
+						"Johnny Appleseed",
+						"Nat Sepruko"
+					]
+				},
+				"link": {
+					"type": "string",
+					"description": "A URI reference that leads to a WWW application controlled by the entity.",
+					"format": "uri-reference",
+					"examples": [
+						"/",
+						"/about",
+						"https://sepruko.dev/",
+						"https://sepruko.dev/about",
+						"https://nat.sepruko.dev/",
+						"https://nat.sepruko.dev/about"
+					]
+				}
+			},
+			"required": [
+				"name"
+			]
+		},
+		"DotDevNavLinks": {
+			"type": "array",
+			"description": "A list of links that will be displayed in the website's navigation.",
+			"items": {
+				"$ref": "#/definitions/DotDevNavLinksItem"
+			},
+			"minItems": 1
+		},
+		"DotDevNavLinksItem": {
+			"type": "object",
+			"description": "An item that may be used in the navigation links list.",
+			"properties": {
+				"name": {
+					"type": "string",
+					"description": "The title of the navigation element."
+				},
+				"link": {
+					"type": "string",
+					"description": "A URI reference that leads to either a same or cross-origin resource.",
+					"format": "uri-reference"
+				}
+			},
+			"required": [
+				"name",
+				"link"
+			]
+		},
+		"DotDevSocials": {
+			"type": "array",
+			"description": "A list of socials controlled by the site's entity.",
+			"items": {
+				"$ref": "#/definitions/DotDevSocialsItem"
+			},
+			"minItems": 1
+		},
+		"DotDevSocialsItem": {
+			"description": "An item that may be used in the socials list.",
+			"oneOf": [
+				{
+					"type": "object",
+					"properties": {
+						"platform_name": {
+							"type": "string",
+							"description": "The name of the social platform.",
+							"minLength": 1
+						},
+						"name": {
+							"type": "string",
+							"description": "The name of the profile on the social platform.",
+							"minLength": 2
+						},
+						"link": {
+							"type": "string",
+							"description": "A link to the profile on the social platform.",
+							"format": "uri"
+						}
+					},
+					"required": [
+						"platform_name",
+						"name",
+						"link"
+					]
+				},
+				{
+					"type": "object",
+					"properties": {
+						"platform_name": {
+							"type": "string",
+							"description": "The name of the social platform.",
+							"enum": [
+								"bluesky",
+								"github"
+							]
+						},
+						"name": {
+							"type": "string",
+							"description": "The name of the profile on the social platform.",
+							"minLength": 2
+						}
+					},
+					"required": [
+						"platform_name",
+						"name"
+					]
+				},
+				{
+					"type": "object",
+					"properties": {
+						"platform_name": {
+							"type": "string",
+							"description": "The name of the social platform.",
+							"enum": [
+								"discord"
+							]
+						},
+						"name": {
+							"type": "string",
+							"description": "The name of the profile on the social platform.",
+							"minLength": 2
+						},
+						"id": {
+							"type": "string",
+							"description": "The unique identifier of the profile on the social platform.",
+							"pattern": "^\\d+$"
+						}
+					},
+					"required": [
+						"platform_name",
+						"name",
+						"id"
+					]
+				},
+				{
+					"type": "object",
+					"properties": {
+						"platform_name": {
+							"type": "string",
+							"description": "The name of the social platform.",
+							"enum": [
+								"steam"
+							]
+						},
+						"id": {
+							"type": "string",
+							"description": "The ID of the profile on the social platform."
+						}
+					},
+					"required": [
+						"platform_name",
+						"id"
+					]
+				}
+			]
+		}
+	}
+}

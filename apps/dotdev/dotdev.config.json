@@ -1,0 +1,40 @@
+{
+	"$schema": "public/schemas/dotdev.json",
+	"copyright": {
+		"name": "Ms-PL",
+		"link": "/LICENSE"
+	},
+	"entity": {
+		"name": "Nat Sepruko",
+		"link": "/"
+	},
+	"nav_links": [
+		{
+			"name": "~/",
+			"link": "/"
+		},
+		{
+			"name": "~/about",
+			"link": "/about"
+		}
+	],
+	"socials": [
+		{
+			"platform_name": "bluesky",
+			"name": "sepruko.dev"
+		},
+		{
+			"platform_name": "discord",
+			"name": "sepruko",
+			"id": "387016947625099264"
+		},
+		{
+			"platform_name": "github",
+			"name": "sepruko"
+		},
+		{
+			"platform_name": "steam",
+			"id": "sepruko"
+		}
+	]
+}
