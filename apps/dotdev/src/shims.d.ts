@@ -20,170 +20,169 @@ declare global {
 		/**
 		 * The copyright document for the website.
 		 */
-		copyright: DotDevGlobal.Copyright;
+		copyright: DotDevCopyright;
 
 		/**
 		 * An entity that has control over the website.
 		 */
-		entity: DotDevGlobal.Entity;
+		entity: DotDevEntity;
 
 		/**
 		 * A list of links that will be displayed in the website's
 		 * navigation.
 		 *
-		 * @see {@linkcode DotDevGlobal.NavLinksItem}
+		 * @see {@linkcode DotDevGlobal.DotDevNavLinksItem}
 		 */
 		// biome-ignore lint/style/useNamingConvention: Match schema.
-		nav_links: DotDevGlobal.NavLinks;
+		nav_links: DotDevNavLinks;
 
 		/**
 		 * A list of socials controlled by the website's owning entities.
 		 *
-		 * @see {@linkcode DotDevGlobal.SocialsItem}
+		 * @see {@linkcode DotDevGlobal.DotDevSocialsItem}
 		 */
-		socials?: DotDevGlobal.Socials;
+		socials?: DotDevSocials;
 	}
 
-	declare namespace DotDevGlobal {
+	/**
+	 * The copyright document for the website.
+	 */
+	export declare interface DotDevCopyright {
 		/**
-		 * The copyright document for the website.
+		 * The identifying name of the legal document.
 		 */
-		export declare interface Copyright {
-			/**
-			 * The identifying name of the legal document.
-			 */
-			name: string;
-
-			/**
-			 * A URI reference that leads to the legal document.
-			 */
-			link?: string;
-		}
+		name: string;
 
 		/**
-		 * An entity that has control over the website.
+		 * A URI reference that leads to the legal document.
 		 */
-		export declare interface Entity {
-			/**
-			 * The name of the entity.
-			 */
-			name: string;
+		link?: string;
+	}
 
-			/**
-			 * A URI reference that leads to a WWW application controlled by the
-			 * entity.
-			 */
-			link?: string;
-		}
+	/**
+	 * An entity that has control over the website.
+	 */
+	export declare interface DotDevEntity {
+		/**
+		 * The name of the entity.
+		 */
+		name: string;
 
 		/**
-		 * A list of links that will be displayed in the website's
-		 * navigation.
-		 *
-		 * @see {@linkcode DotDevGlobal.NavLinksItem}
+		 * A URI reference that leads to a WWW application controlled by the
+		 * entity.
 		 */
-		export declare type NavLinks = NavLinksItem[];
+		link?: string;
+	}
+
+	/**
+	 * A list of links that will be displayed in the website's
+	 * navigation.
+	 *
+	 * @see {@linkcode DotDevGlobal.DotDevNavLinksItem}
+	 */
+	export declare type DotDevNavLinks = DotDevNavLinksItem[];
+
+	/**
+	 * An item that may be used in the
+	 * {@link DotDevNavLinks navigation links list}.
+	 */
+	export declare interface DotDevNavLinksItem {
+		/**
+		 * The title of the navigation element.
+		 */
+		name: string;
 
 		/**
-		 * An item that may be used in the
-		 * {@link NavLinks navigation links list}.
+		 * A URI reference that leads to either a same or cross-origin
+		 * resource.
 		 */
-		export declare interface NavLinksItem {
-			/**
-			 * The title of the navigation element.
-			 */
-			name: string;
+		link: string;
+	}
 
-			/**
-			 * A URI reference that leads to either a same or cross-origin
-			 * resource.
-			 */
-			link: string;
-		}
+	/**
+	 * A list of socials controlled by the website's owning entities.
+	 *
+	 * @see {@linkcode DotDevGlobal.DotDevSocialsItem}
+	 */
+	export declare type DotDevSocials = DotDevSocialsItem[];
+
+	/**
+	 * A union of `string` types that satisfy all known social platforms.
+	 *
+	 * @see {@linkcode DotDevKnownSocialsItem}, {@linkcode DotDevDiscordSocialItem}, {@linkcode DotDevSteamSocialItem}
+	 */
+	export declare type DotDevKnownSocialsItemPlatform = "bluesky" | "discord" | "github" | "steam";
+
+	/**
+	 * A generic social item type.
+	 */
+	export declare type DotDevSocialsItem<P extends string = string> =
+		P extends DotDevKnownSocialsItemPlatform
+			? P extends "bluesky" | "github"
+				? DotDevKnownSocialsItem
+				: P extends "discord"
+					? DotDevDiscordSocialItem
+					: P extends "steam"
+						? DotDevSteamSocialItem
+						: never
+			: DotDevBaseSocialsItem;
+
+	/**
+	 * The base of all social items, only used for unknown platforms.
+	 *
+	 * @see {@linkcode DotDevKnownSocialsItemPlatform}
+	 */
+	declare interface DotDevBaseSocialsItem<P extends string = string> {
+		/**
+		 * The name of the social platform.
+		 */
+		// biome-ignore lint/style/useNamingConvention: Match schema.
+		platform_name: P;
 
 		/**
-		 * A list of socials controlled by the website's owning entities.
-		 *
-		 * @see {@linkcode DotDevGlobal.SocialsItem}
+		 * The name of the profile on the
+		 * {@link platform_name social platform}.
 		 */
-		export declare type Socials = SocialsItem[];
+		name: string;
 
 		/**
-		 * A union of `string` types that satisfy all known social platforms.
-		 *
-		 * @see {@linkcode KnownSocialsItem}, {@linkcode DiscordSocialItem}, {@linkcode SteamSocialItem}
+		 * A link to the profile on the
+		 * {@link platform_name social platform}.
 		 */
-		export declare type KnownSocialsItemPlatform = "bluesky" | "discord" | "github" | "steam";
+		link: string;
+	}
 
+	/**
+	 * A basic known item for any known social platforms.
+	 *
+	 * @see {@linkcode DotDevKnownSocialsItemPlatform}
+	 */
+	declare interface DotDevKnownSocialsItem
+		extends Exclude<DotDevBaseSocialsItem<"bluesky" | "github">, "link"> {}
+
+	/**
+	 * A known item specifically for the `"discord"` platform.
+	 *
+	 * @see {@linkcode DotDevKnownSocialsItemPlatform}
+	 */
+	declare interface DotDevDiscordSocialItem
+		extends Exclude<DotDevBaseSocialsItem<"discord">, "link"> {
 		/**
-		 * A generic social item type.
+		 * The unique identifier of the profile on the social platform.
 		 */
-		export declare type SocialsItem<P extends string = string> =
-			P extends KnownSocialsItemPlatform
-				? P extends "bluesky" | "github"
-					? KnownSocialsItem
-					: P extends "discord"
-						? DiscordSocialItem
-						: P extends "steam"
-							? SteamSocialItem
-							: never
-				: BaseSocialsItem;
+		id: `${number}`;
+	}
 
+	/**
+	 * A known item specifically for the `"discord"` platform.
+	 */
+	declare interface DotDevSteamSocialItem
+		extends Exclude<DotDevBaseSocialsItem<"steam">, "name" | "link"> {
 		/**
-		 * The base of all social items, only used for unknown platforms.
-		 *
-		 * @see {@linkcode KnownSocialsItemPlatform}
+		 * The ID of the profile on the social platform.
 		 */
-		declare interface BaseSocialsItem<P extends string = string> {
-			/**
-			 * The name of the social platform.
-			 */
-			// biome-ignore lint/style/useNamingConvention: Match schema.
-			platform_name: P;
-
-			/**
-			 * The name of the profile on the
-			 * {@link platform_name social platform}.
-			 */
-			name: string;
-
-			/**
-			 * A link to the profile on the
-			 * {@link platform_name social platform}.
-			 */
-			link: string;
-		}
-
-		/**
-		 * A basic known item for any known social platforms.
-		 *
-		 * @see {@linkcode KnownSocialsItemPlatform}
-		 */
-		declare interface KnownSocialsItem
-			extends Exclude<BaseSocialsItem<"bluesky" | "github">, "link"> {}
-
-		/**
-		 * A known item specifically for the `"discord"` platform.
-		 *
-		 * @see {@linkcode KnownSocialsItemPlatform}
-		 */
-		declare interface DiscordSocialItem extends Exclude<BaseSocialsItem<"discord">, "link"> {
-			/**
-			 * The unique identifier of the profile on the social platform.
-			 */
-			id: `${number}`;
-		}
-
-		/**
-		 * A known item specifically for the `"discord"` platform.
-		 */
-		declare interface SteamSocialItem
-			extends Exclude<BaseSocialsItem<"steam">, "name" | "link"> {
-			/**
-			 * The ID of the profile on the social platform.
-			 */
-			id: string;
-		}
+		id: string;
 	}
 
 	// biome-ignore lint/style/useNamingConvention: Match 'Astro' global.
