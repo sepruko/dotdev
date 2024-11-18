@@ -1,5 +1,6 @@
 {
 	"$schema": "https://json.schemastore.org/prettierrc",
+	"experimentalTernaries": false,
 	"htmlWhitespaceSensitivity": "strict",
 	"plugins": [
 		"prettier-plugin-astro"
