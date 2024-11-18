@@ -7,6 +7,7 @@ ASTRO	Astro		astro
 		Iconify		iconify
 JSR					jsr
 OG					og
+					sr
 		Tabler		tabler
 		UnifiedJS	unifiedjs
 		Uno			uno
