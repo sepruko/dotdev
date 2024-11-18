@@ -6,6 +6,8 @@ import presetWebFonts from "@unocss/preset-web-fonts";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
 
+// cspell:words un
+
 export default {
 	preflights: [
 		{
@@ -13,23 +15,25 @@ export default {
 			getCSS: (): string =>
 				`
 				:root {
-					@apply font-sans;
+					@apply font-mono;
 				}
 
+				:where(*, ::before, ::after)[b*="dark:"],
+				:where(*, ::before, ::after)[b-color*="dark:"],
 				:where(*, ::before, ::after)[background-color*="dark:"],
 				:where(*, ::before, ::after)[bg*="dark:"],
 				:where(*, ::before, ::after)[border*="dark:"],
+				:where(*, ::before, ::after)[border-color*="dark:"],
 				:where(*, ::before, ::after)[c*="dark:"],
 				:where(*, ::before, ::after)[color*="dark:"] {
-					transition:
-						background-color 825ms ease,
-						border-color 825ms ease,
-						color 825ms ease
+					@apply t-[background-color,border-color,color]-825-ease;
 				}
 
+				/*
 				:where(a) {
-					@apply c-blue visited:(c-purple dark:c-purple-6);
+					@apply c-blue visited:(c-purple-6 dark:c-purple);
 				}
+				*/
 
 				body {
 					@apply m-0 h-vh overflow-x-hidden w-vw;
@@ -37,15 +41,11 @@ export default {
 
 				code,
 				pre {
-					@apply font-mono
-				}
-
-				details:not(:has(> summary)) {
-					@apply c-red;
+					@apply font-mono;
 				}
 
 				fieldset {
-					@apply b-current rd-1;
+					@apply b-current;
 				}
 
 				summary {
@@ -67,8 +67,11 @@ export default {
 					import("@iconify-json/tabler/icons.json").then(({ default: d }) => d),
 			},
 			extraProperties: {
-				"--at-apply": '"inline-block size-min-8"',
+				"--at-apply": "inline-block size-min-8",
 			} satisfies CSSValueInput,
+			processor: (css): void => {
+				css["--un-icon"] = (css["--un-icon"] as string).replace(/--[a-z-]+='[^']*'/g, "");
+			},
 			prefix: "icon-",
 		}),
 		presetUno({
@@ -95,6 +98,38 @@ export default {
 				};
 			},
 		],
+		[
+			/^(?:t|trans|transition)-?\[([a-z-,]+)\](?:-(\d+))?(?:-([a-z]+))?$/,
+			function* ([, props, duration = "1000", ease = "linear"]): Generator<
+				string | CSSValueInput
+			> {
+				switch (ease) {
+					case "ease":
+					case "linear": {
+						break;
+					}
+					default: {
+						ease = `ease-${ease}`;
+					}
+				}
+
+				yield {
+					transition: props!
+						.split(",")
+						.map((p) => `${p} ${+duration / 1000}s ${ease}`)
+						.join(","),
+				};
+			},
+		],
+	],
+	safelist: [
+		'[icon="tabler-brand-bluesky"]',
+		'[icon="tabler-brand-discord"]',
+		'[icon="tabler-brand-github"]',
+		'[icon="tabler-brand-steam"]',
+		'[select="auto"]',
+		'[select="none"]',
+		'[sr-only="~"]',
 	],
 	shortcuts: [
 		[
@@ -103,50 +138,7 @@ export default {
 		],
 	],
 	theme: {
-		colors: {
-			moonstone: {
-				50: "#edf2f3",
-				100: "#dbe5e7",
-				200: "#b6cbce",
-				300: "#91b1b6",
-				400: "#6c969d",
-				500: "#5f848a",
-				600: "#445e63",
-				700: "#364b4f",
-				800: "#29393c",
-				900: "#0e1314",
-				950: "#070a0a",
-				DEFAULT: "#6c969d",
-			},
-			raisinblack: {
-				50: "#e3e3e4",
-				100: "#c6c6c8",
-				200: "#8c8c91",
-				300: "#53535a",
-				400: "#191923",
-				500: "#16161f",
-				600: "#101017",
-				700: "#0d0d12",
-				800: "#070709",
-				900: "#040405",
-				950: "#020203",
-				DEFAULT: "#191923",
-			},
-			sandybrown: {
-				50: "#fef3e9",
-				100: "#fde7d3",
-				200: "#facfa6",
-				300: "#91b1b6",
-				400: "#f49e4c",
-				500: "#d68b43",
-				600: "#996330",
-				700: "#7a4f26",
-				800: "#4d3218",
-				900: "#27190c",
-				950: "#140d06",
-				DEFAULT: "#f49e4c",
-			},
-		},
+		colors: {},
 		preflightBase: {
 			"box-sizing": "border-box",
 		} satisfies CSSValueInput,
