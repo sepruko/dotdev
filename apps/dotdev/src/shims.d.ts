@@ -12,6 +12,164 @@ declare global {
 	namespace astroHTML.JSX {
 		interface HTMLAttributes extends AttributifyAttributes {}
 	}
+
+	/**
+	 * The type for the {@linkcode DotDev} global object.
+	 */
+	interface DotDevGlobal {
+		/**
+		 * The copyright document for the website.
+		 */
+		copyright: DotDevGlobal.Copyright;
+
+		/**
+		 * An entity that has control over the website.
+		 */
+		entity: DotDevGlobal.Entity;
+
+		/**
+		 * A list of links that will be displayed in the website's
+		 * navigation.
+		 *
+		 * @see {@linkcode DotDevGlobal.NavLinksItem}
+		 */
+		// biome-ignore lint/style/useNamingConvention: Match schema.
+		nav_links: DotDevGlobal.NavLinks;
+
+		/**
+		 * A list of socials controlled by the website's owning entities.
+		 *
+		 * @see {@linkcode DotDevGlobal.SocialsItem}
+		 */
+		socials?: DotDevGlobal.Socials;
+	}
+
+	namespace DotDevGlobal {
+		/**
+		 * The copyright document for the website.
+		 */
+		export interface Copyright {
+			name: string;
+			link?: string;
+		}
+
+		/**
+		 * An entity that has control over the website.
+		 */
+		export interface Entity {
+			name: string;
+			link?: string;
+		}
+
+		/**
+		 * A list of links that will be displayed in the website's
+		 * navigation.
+		 *
+		 * @see {@linkcode DotDevGlobal.NavLinksItem}
+		 */
+		export type NavLinks = NavLinksItem[];
+
+		/**
+		 * An item that may be used in the
+		 * {@link NavLinks navigation links list}.
+		 */
+		export interface NavLinksItem {
+			/**
+			 * The title of the navigation element.
+			 */
+			name: string;
+
+			/**
+			 * A URI reference that leads to either a same or cross-origin
+			 * resource.
+			 */
+			link: string;
+		}
+
+		/**
+		 * A list of socials controlled by the website's owning entities.
+		 *
+		 * @see {@linkcode DotDevGlobal.SocialsItem}
+		 */
+		export type Socials = SocialsItem[];
+
+		/**
+		 * A union of `string` types that satisfy all known social platforms.
+		 *
+		 * @see {@linkcode KnownSocialsItem}, {@linkcode DiscordSocialItem}, {@linkcode SteamSocialItem}
+		 */
+		export type KnownSocialsItemPlatform = "bluesky" | "discord" | "github" | "steam";
+
+		/**
+		 * A generic social item type.
+		 */
+		export type SocialsItem<P extends string = string> = P extends KnownSocialsItemPlatform
+			? P extends "bluesky" | "github"
+				? KnownSocialsItem
+				: P extends "discord"
+					? DiscordSocialItem
+					: P extends "steam"
+						? SteamSocialItem
+						: never
+			: BaseSocialsItem;
+
+		/**
+		 * The base of all social items, only used for unknown platforms.
+		 *
+		 * @see {@linkcode KnownSocialsItemPlatform}
+		 */
+		interface BaseSocialsItem<P extends string = string> {
+			/**
+			 * The name of the social platform.
+			 */
+			// biome-ignore lint/style/useNamingConvention: Match schema.
+			platform_name: P;
+
+			/**
+			 * The name of the profile on the
+			 * {@link platform_name social platform}.
+			 */
+			name: string;
+
+			/**
+			 * A link to the profile on the
+			 * {@link platform_name social platform}.
+			 */
+			link: string;
+		}
+
+		/**
+		 * A basic known item for any known social platforms.
+		 *
+		 * @see {@linkcode KnownSocialsItemPlatform}
+		 */
+		interface KnownSocialsItem extends Exclude<BaseSocialsItem<"bluesky" | "github">, "link"> {}
+
+		/**
+		 * A known item specifically for the `"discord"` platform.
+		 *
+		 * @see {@linkcode KnownSocialsItemPlatform}
+		 */
+		interface DiscordSocialItem extends Exclude<BaseSocialsItem<"discord">, "link"> {
+			/**
+			 * The unique identifier of the profile on the social platform.
+			 */
+			id: `${number}`;
+		}
+
+		/**
+		 * A known item specifically for the `"discord"` platform.
+		 */
+		interface SteamSocialItem extends Exclude<BaseSocialsItem<"steam">, "name" | "link"> {
+			/**
+			 * The ID of the profile on the social platform.
+			 */
+			id: string;
+		}
+	}
+
+	// biome-ignore lint/style/useNamingConvention: Match 'Astro' global.
+	declare const DotDev: DotDevGlobal;
 }
 
 declare module "solid-js" {
