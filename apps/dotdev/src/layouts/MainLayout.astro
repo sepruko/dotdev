@@ -1,0 +1,27 @@
+---
+import BaseFooter from "@/components/footer/BaseFooter";
+import BaseNav from "@/components/nav/BaseNav";
+import type { BaseLayoutProps } from "@/layouts/BaseLayout";
+import BaseLayout from "@/layouts/BaseLayout";
+import { ViewTransitions } from "astro:transitions";
+
+/**
+ * Properties to pass to the {@linkcode MainLayout} layout.
+ */
+interface Props extends BaseLayoutProps {}
+
+export type { Props as MainLayoutProps };
+
+const { ...props } = Astro.props;
+---
+
+<BaseLayout {...props}>
+	<ViewTransitions fallback="none" slot="head" />
+	<slot name="pre-header" slot="header" />
+	<BaseNav slot="header" />
+	<slot name="header" slot="header" />
+	<slot />
+	<slot name="pre-footer" slot="footer" />
+	<BaseFooter slot="footer" />
+	<slot name="footer" slot="footer" />
+</BaseLayout>

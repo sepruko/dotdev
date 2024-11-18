@@ -1,0 +1,28 @@
+---
+/**
+ * Properties to pass to the {@linkcode BaseNavItem} component.
+ */
+interface Props {
+	/**
+	 * The name of the navigation element.
+	 */
+	name: string;
+
+	/**
+	 * The URI reference to the same or cross-origin resource.
+	 */
+	link: string;
+}
+
+export type { Props as BaseNavItemProps };
+
+const { name, link } = Astro.props;
+
+const url = new URL(/^https?:\/\//.test(link) ? link : `${Astro.url.origin}${link}`);
+const props =
+	url.origin != Astro.url.origin
+		? { target: "_blank", rel: "noreferrer" }
+		: { "data-astro-preload": "" };
+---
+
+<a href={link} {...props}>{name}</a>

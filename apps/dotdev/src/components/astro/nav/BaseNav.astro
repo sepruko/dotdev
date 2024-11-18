@@ -1,0 +1,31 @@
+---
+import type { BaseNavItemProps } from "@/components/nav/BaseNavItem";
+import BaseNavItem from "@/components/nav/BaseNavItem";
+
+/**
+ * Properties to pass to the {@linkcode BaseNav} component.
+ */
+interface Props {
+	/**
+	 * A list of properties to pass to new {@linkcode BaseNavItem} components.
+	 */
+	links?: BaseNavItemProps[];
+}
+
+export type { Props as BaseNavProps };
+
+const { links = DotDev.nav_links } = Astro.props;
+---
+
+<nav flex="~ gap-2 grow-1 items-center justify-start nowrap row">
+	<slot name="pre" />
+	{
+		links.map((props, i, { length: l }) => (
+			<Fragment>
+				<BaseNavItem {...props} />
+				{i < l - 1 && <div />}
+			</Fragment>
+		))
+	}
+	<slot />
+</nav>

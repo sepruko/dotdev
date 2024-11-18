@@ -1,0 +1,22 @@
+---
+import type { SocialsItemProps } from "@/components/footer/SocialsItem";
+import SocialsItem from "@/components/footer/SocialsItem";
+
+/**
+ * Properties for the {@linkcode Socials} component.
+ */
+interface Props {
+	/**
+	 * A list of social items to render.
+	 */
+	items: SocialsItemProps[];
+}
+
+export type { Props as SocialsProps };
+
+const { items } = Astro.props;
+---
+
+<div flex="~ gap-4 items-center justify-center nowrap row">
+	{items.map((item) => <SocialsItem {...item} />)}
+</div>
