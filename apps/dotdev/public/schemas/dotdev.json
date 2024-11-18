@@ -114,7 +114,7 @@
 		},
 		"DotDevSocials": {
 			"type": "array",
-			"description": "A list of socials controlled by the site's entity.",
+			"description": "A list of socials controlled by the website's owning entities.",
 			"items": {
 				"$ref": "#/definitions/DotDevSocialsItem"
 			},
