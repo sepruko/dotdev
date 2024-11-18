@@ -1,15 +1,11 @@
 import mdx from "@astrojs/mdx";
 import solid from "@astrojs/solid-js";
 import unocss from "@unocss/astro";
+import type { AstroIntegration } from "astro";
 import type { AstroUserConfig } from "astro/config";
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
-import { cwd } from "node:process";
 
 // cspell:words mpa
-
-// biome-ignore lint/style/useNamingConvention: No.
-const DotDev = await readFile(join(cwd(), "dotdev.config.json"), { encoding: "utf-8", flag: "a+" });
 
 export default {
 	build: {
@@ -46,6 +42,7 @@ export default {
 		},
 	},
 	integrations: [
+		dotdev(),
 		mdx(),
 		solid({ devtools: true, include: ["src/components/solid/**"] }),
 		unocss(),
@@ -58,6 +55,21 @@ export default {
 	site: "https://sepruko.dev/",
 	vite: {
 		appType: "mpa",
-		define: { DotDev },
 	},
 } as AstroUserConfig;
+
+function dotdev(): AstroIntegration {
+	return {
+		name: "@sepruko/dotdev/integration",
+		hooks: {
+			"astro:config:setup": async (options): Promise<void> => {
+				const config = new URL("dotdev.config.json", options.config.root);
+
+				options.addWatchFile(config);
+				// biome-ignore lint/style/useNamingConvention: Match global.
+				const DotDev = await readFile(config, { encoding: "utf-8", flag: "a+" });
+				options.updateConfig({ vite: { define: { DotDev } } });
+			},
+		},
+	};
+}
