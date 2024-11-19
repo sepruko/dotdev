@@ -4,7 +4,9 @@ declare module "@unocss/preset-attributify" {
 	interface AttributifyAttributes {
 		b?: string | boolean;
 		c?: string | boolean;
+		decoration?: string | boolean;
 		self?: string | boolean;
+		t?: string | boolean;
 	}
 }
 

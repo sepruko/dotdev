@@ -67,7 +67,7 @@ export default {
 					import("@iconify-json/tabler/icons.json").then(({ default: d }) => d),
 			},
 			extraProperties: {
-				"--at-apply": "inline-block size-min-8",
+				"--at-apply": "inline-block size-min-6",
 			} satisfies CSSValueInput,
 			processor: (css): void => {
 				css["--un-icon"] = (css["--un-icon"] as string).replace(/--[a-z-]+='[^']*'/g, "");
@@ -138,7 +138,23 @@ export default {
 		],
 	],
 	theme: {
-		colors: {},
+		colors: {
+			isabelline: {
+				DEFAULT: "#F2E9E4",
+			},
+			paledogwood: {
+				DEFAULT: "#c9ada7",
+			},
+			rosequartz: {
+				DEFAULT: "#9a8c98",
+			},
+			spacecadet: {
+				DEFAULT: "#22223b",
+			},
+			ultraviolet: {
+				DEFAULT: "#4a4e69",
+			},
+		},
 		preflightBase: {
 			"box-sizing": "border-box",
 		} satisfies CSSValueInput,

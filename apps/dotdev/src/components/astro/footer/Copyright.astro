@@ -30,7 +30,7 @@ function CopyrightDisplay({ name, link }: DotDevCopyright): astroHTML.JSX.Elemen
 
 	return url
 		? {
-				t: `<a href="${link}"${ext ? ' target="_blank" rel="noreferrer"' : ""}>${name}</a>`,
+				t: `<a c="unset visited:unset" decoration="dashed" href="${link}"${ext ? ' target="_blank" rel="noreferrer"' : ""}>${name}</a>`,
 			}
 		: name;
 }
@@ -52,10 +52,10 @@ function HolderDisplay({ name, link }: DotDevEntity): astroHTML.JSX.Element {
 
 	return url
 		? {
-				t: `<a href="${link}"${ext ? ' target="_blank" rel="noreferrer"' : 'data-astro-prefetch=""'}>${name}</a>`,
+				t: `<a c="unset visited:unset" decoration="dashed" href="${link}"${ext ? ' target="_blank" rel="noreferrer"' : 'data-astro-prefetch=""'}>${name}</a>`,
 			}
 		: name;
 }
 ---
 
-<span><CopyrightDisplay {...copyright} /> by <HolderDisplay {...holder} /></span>
+<span><CopyrightDisplay {...copyright} />© by <HolderDisplay {...holder} /></span>
