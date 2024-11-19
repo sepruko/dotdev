@@ -1,10 +1,21 @@
 ---
 import MainLayout from "@/layouts/MainLayout";
+
+const {
+	entity: { name, full_name },
+} = DotDev;
 ---
 
 <MainLayout
-	title="sepruko.dev / ~"
-	description="Nat Sepruko's personal website."
-	keywords={["nat", "sepruko", "webdev", "webdevelopment", "web development", "sepruko.dev"]}
-	>Hello, I'm Nat Sepruko! <span text="size-0.8em">(you can just call me Nat)</span></MainLayout
+	title=`${Astro.site!.hostname} / ~`
+	description=`${full_name}'s personal website.'`
+	keywords={[
+		...full_name.toLowerCase().split(" "),
+		"webdev",
+		"webdevelopment",
+		"web development",
+		Astro.site!.hostname,
+	]}
+	>Hello, I'm {full_name}! <span text="size-0.8em">(you can just call me {name})</span
+	></MainLayout
 >
