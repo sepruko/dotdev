@@ -1,0 +1,20 @@
+---
+import CopyrightDisplay from "@/components/footer/copyright/CopyrightDisplay";
+import CopyrightHolder from "@/components/footer/copyright/CopyrightHolder";
+
+/**
+ * Properties to pass to the {@linkcode Copyright} component.
+ */
+interface Props extends DotDevCopyright {
+	/**
+	 * The entity which holds the copyright.
+	 */
+	holder: DotDevEntity;
+}
+
+export type { Props as CopyrightProps };
+
+const { holder, ...copyright } = Astro.props;
+---
+
+<span><CopyrightDisplay {...copyright} />© by <CopyrightHolder {...holder} /></span>

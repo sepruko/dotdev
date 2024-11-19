@@ -1,0 +1,29 @@
+---
+/**
+ * Properties to pass to the {@linkcode CopyrightHolder} component.
+ */
+interface Props extends DotDevEntity {}
+
+export type { Props as CopyrightHolderProps };
+
+const { name, link } = Astro.props;
+
+const url = link ? new URL(/^https?:\/\//.test(link) ? link : `${Astro.url.origin}${link}`) : null;
+const ext = url?.origin != Astro.url.origin;
+---
+
+{
+	url ? (
+		<a
+			c="unset visited:unset"
+			decoration="dashed"
+			href={link}
+			target={ext ? undefined : "_blank"}
+			rel={ext ? undefined : "noreferrer"}
+		>
+			{name}
+		</a>
+	) : (
+		name
+	)
+}
