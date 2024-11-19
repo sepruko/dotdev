@@ -1,2 +1,5 @@
 # products
-DOTDEV	DotDev	dotdev
+DOTDEV		DotDev		dotdev
+
+# colors
+ISABELLINE	Isabelline	isabelline
