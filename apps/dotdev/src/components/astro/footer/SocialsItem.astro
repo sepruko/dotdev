@@ -43,7 +43,7 @@ switch (platform_name) {
 }
 ---
 
-<a href={link} target="_blank" title={`${platform_name}: ${name}`} rel="noreferrer">
+<a href={link} target="_blank" title=`${platform_name}: ${name}` rel="noreferrer">
 	{icon && <span icon={icon} />}
 	<span select={icon ? "none" : "auto"} sr-only={icon ? "~" : undefined}>
 		{icon ? name : `${platform_name}: ${name}`}
