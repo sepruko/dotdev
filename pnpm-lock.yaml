@@ -23,9 +23,6 @@ importers:
       cspell:
         specifier: ^8.16.0
         version: 8.16.0
-      husky:
-        specifier: ^9.1.6
-        version: 9.1.6
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -1841,11 +1838,6 @@ packages:
 
   http-cache-semantics@4.1.1:
     resolution: {integrity: sha512-er295DKPVsV82j5kw1Gjt+ADA/XYHsajl82cGNQG2eyoPkvgUhX+nDIyelzhIWbbsXP39EHcI6l5tYs2FYqYXQ==, tarball: https://registry.npmjs.org/http-cache-semantics/-/http-cache-semantics-4.1.1.tgz}
-
-  husky@9.1.6:
-    resolution: {integrity: sha512-sqbjZKK7kf44hfdE94EoX8MZNk0n7HeW37O4YrVGCF4wzgQjp+akPAkfUK5LZ6KuR/6sqeAVuXHji+RzQgOn5A==, tarball: https://registry.npmjs.org/husky/-/husky-9.1.6.tgz}
-    engines: {node: '>=18'}
-    hasBin: true
 
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==, tarball: https://registry.npmjs.org/import-fresh/-/import-fresh-3.3.0.tgz}
@@ -4758,8 +4750,6 @@ snapshots:
   html-void-elements@3.0.0: {}
 
   http-cache-semantics@4.1.1: {}
-
-  husky@9.1.6: {}
 
   import-fresh@3.3.0:
     dependencies:
