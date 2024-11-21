@@ -145,6 +145,9 @@ export default {
 			paledogwood: {
 				DEFAULT: "#c9ada7",
 			},
+			richblack: {
+				DEFAULT: "#11111e",
+			},
 			rosequartz: {
 				DEFAULT: "#9a8c98",
 			},
