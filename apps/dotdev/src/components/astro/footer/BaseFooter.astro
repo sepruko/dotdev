@@ -5,10 +5,7 @@ import Socials from "@/components/footer/Socials";
 const { copyright, entity, socials } = DotDev;
 ---
 
-<div
-	flex="~ gap-4 grow-1 items-center justify-between row wrap portrait:col"
-	p="x-4 y-2 portrait:y-4"
->
+<div flex="~ gap-4 grow-1 items-center justify-between row wrap portrait:col" p="2 portrait:4">
 	<slot name="pre" />
 	<Copyright holder={entity} {...copyright} />
 	{socials && <Socials items={socials} />}

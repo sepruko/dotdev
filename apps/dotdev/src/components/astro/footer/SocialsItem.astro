@@ -44,17 +44,18 @@ switch (platform_name) {
 ---
 
 <a
-	bg="hover:isabelline/5"
+	b="1 rd-1 solid transparent target:ultraviolet/50 hover:ultraviolet/50"
+	bg="hover:ultraviolet/10"
 	c="unset visited:unset"
-	h="max-8"
+	h="max-12"
 	href={link}
-	p="1"
-	t="[background-color]-125-ease"
+	p="2"
+	t="[background-color,border-color]-125-ease"
 	target="_blank"
 	title=`${platform_name}: ${name}`
 	rel="noreferrer"
 >
-	{icon && <span icon={icon} />}
+	{icon && <span block="~" icon={icon} />}
 	<span select={icon ? "none" : "auto"} sr-only={icon ? "~" : undefined}>
 		{icon ? name : `${platform_name}: ${name}`}
 	</span>

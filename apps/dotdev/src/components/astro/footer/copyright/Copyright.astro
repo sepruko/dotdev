@@ -17,4 +17,4 @@ export type { Props as CopyrightProps };
 const { holder, ...copyright } = Astro.props;
 ---
 
-<span><CopyrightDisplay {...copyright} />© by <CopyrightHolder {...holder} /></span>
+<span p="2"><CopyrightDisplay {...copyright} />© by <CopyrightHolder {...holder} /></span>

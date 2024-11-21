@@ -28,12 +28,13 @@ const { 0: first, 1: second } = name.split("/");
 ---
 
 <a
-	bg="hover:isabelline/5"
+	b="1 rd-1 solid transparent hover:ultraviolet/50"
+	bg="hover:ultraviolet/10"
 	c="unset visited:unset"
 	decoration="none"
 	href={link}
-	p="x-2 y-1"
-	t="[background-color]-125-ease"
+	p="x-4 y-2"
+	t="[background-color,border-color]-125-ease"
 	text="center"
 	w="min-16"
 	{...props}>{first && <span c="paledogwood">{first}/</span>}{second ?? first}</a

@@ -17,13 +17,13 @@ export type { Props as BaseNavProps };
 const { links = DotDev.nav_links } = Astro.props;
 ---
 
-<nav flex="~ gap-4 grow-1 items-center justify-start nowrap row" p="x-8 y-4">
+<nav flex="~ gap-4 grow-1 items-center justify-start nowrap row" p="4">
 	<slot name="pre" />
 	{
 		links.map((props, i, { length: l }) => (
 			<Fragment>
 				<BaseNavItem {...props} />
-				{i < l - 1 && <div bg="ultraviolet/50" h="4" w="1px" />}
+				{i < l - 1 && <div bg="ultraviolet/50" h="6" w="1px" />}
 			</Fragment>
 		))
 	}
