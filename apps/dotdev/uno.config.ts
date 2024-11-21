@@ -151,6 +151,9 @@ export default {
 			rosequartz: {
 				DEFAULT: "#9a8c98",
 			},
+			seasalt: {
+				DEFAULT: "#fcfaf9",
+			},
 			spacecadet: {
 				DEFAULT: "#22223b",
 			},
