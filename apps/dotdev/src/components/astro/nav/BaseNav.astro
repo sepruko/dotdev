@@ -23,7 +23,7 @@ const { links = DotDev.nav_links } = Astro.props;
 		links.map((props, i, { length: l }) => (
 			<Fragment>
 				<BaseNavItem {...props} />
-				{i < l - 1 && <div bg="ultraviolet/50" h="6" w="1px" />}
+				{i < l - 1 && <div bg="ultraviolet/50" size="h-6 w-1px" />}
 			</Fragment>
 		))
 	}
