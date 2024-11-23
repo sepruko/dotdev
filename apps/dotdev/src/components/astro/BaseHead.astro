@@ -44,7 +44,12 @@ interface Props {
 
 export type { Props as BaseHeadProps };
 
-const { title = "sepruko.dev", description, keywords, og = { title, description } } = Astro.props;
+const {
+	title = `${Astro.site!.hostname} ~${Astro.url.pathname}`,
+	description,
+	keywords,
+	og = { title, description },
+} = Astro.props;
 ---
 
 <head>
