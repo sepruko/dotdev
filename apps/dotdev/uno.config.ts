@@ -1,10 +1,11 @@
-import type { CSSValueInput, UserConfig as UnoUserConfig } from "@unocss/core";
+import type { CSSValueInput, Preset as UnoPreset, UserConfig as UnoUserConfig } from "@unocss/core";
 import presetAttributify from "@unocss/preset-attributify";
 import presetIcons from "@unocss/preset-icons";
 import presetUno, { type Theme } from "@unocss/preset-uno";
 import presetWebFonts from "@unocss/preset-web-fonts";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
+import { readFileSync } from "node:fs";
 
 // cspell:words Fns ltrb un
 
@@ -64,6 +65,7 @@ export default {
 		},
 	],
 	presets: [
+		presetDotDev(),
 		presetAttributify({
 			nonValuedAttribute: false,
 			strict: true,
@@ -129,15 +131,7 @@ export default {
 			},
 		],
 	],
-	safelist: [
-		'[icon="tabler-brand-bluesky"]',
-		'[icon="tabler-brand-discord"]',
-		'[icon="tabler-brand-github"]',
-		'[icon="tabler-brand-steam"]',
-		'[select="auto"]',
-		'[select="none"]',
-		'[sr-only="~"]',
-	],
+	safelist: ['[select="auto"]', '[select="none"]', '[sr-only="~"]'],
 	shortcuts: [
 		[
 			/^(?:pos|position)-([ltrb])-(.+)$/,
@@ -215,3 +209,33 @@ export default {
 	},
 	transformers: [transformerDirectives(), transformerVariantGroup()],
 } as UnoUserConfig<Theme>;
+
+/**
+ * The UnoCSS preset for registering and auto-updating the safelist for icons
+ * that may be referenced by the `@sepruko/dotdev` project configuration.
+ */
+function presetDotDev(): UnoPreset<Theme> {
+	return {
+		name: "@sepruko/dotdev/preset-uno",
+		configResolved: (options): void => {
+			const config = new URL("dotdev.config.json", options.configFile || import.meta.url);
+
+			options.configDeps ??= [];
+			options.configDeps.push(`${config.pathname}`);
+			// biome-ignore lint/style/useNamingConvention: Match global.
+			const DotDev = JSON.parse(readFileSync(config, { encoding: "utf-8", flag: "a+" }));
+			if (!Array.isArray(DotDev.socials)) {
+				return;
+			}
+
+			options.safelist.push(
+				...new Set(
+					Object.values(DotDev.socials).map(
+						(s: any) =>
+							`[icon="tabler-brand-${s.platform_name.replace("discord-server", "discord")}"]`,
+					),
+				),
+			);
+		},
+	};
+}
