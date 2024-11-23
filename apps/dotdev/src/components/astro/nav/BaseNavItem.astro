@@ -37,5 +37,8 @@ const { 0: first, 1: second } = name.split("/");
 	size="w-min-16"
 	t="[background-color,border-color]-125-ease"
 	text="center"
-	{...props}>{first && <span c="rosequartz dark:paledogwood">{first}/</span>}{second ?? first}</a
+	{...props}
+	>{second != undefined && <span c="rosequartz dark:paledogwood">{first}/</span>}{
+		second ?? first
+	}</a
 >
