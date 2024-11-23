@@ -56,6 +56,16 @@ export default {
 					@apply b-current;
 				}
 
+				sub, sup {
+					position: relative;
+					top: -0.4em;
+					vertical-align: baseline;
+				}
+
+				sub {
+					top: 0.4em;
+				}
+
 				summary {
 					@apply after:([details>&]:content-[(click&#32;to&#32;expand)] [details[open]>&]:content-[(click&#32;to&#32;collapse)] c-raisinblack-200 m-l-2 text-size-0.8em);
 				}

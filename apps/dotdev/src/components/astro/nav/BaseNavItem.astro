@@ -19,10 +19,8 @@ export type { Props as BaseNavItemProps };
 const { name, link } = Astro.props;
 
 const url = new URL(/^https?:\/\//.test(link) ? link : `${Astro.url.origin}${link}`);
-const props =
-	url.origin != Astro.url.origin
-		? { target: "_blank", rel: "noreferrer" }
-		: { "data-astro-preload": "" };
+const external = url.origin != Astro.url.origin;
+const props = external ? { target: "_blank", rel: "noreferrer" } : { "data-astro-preload": "" };
 
 const { 0: first, 1: second } = name.split("/");
 ---
@@ -33,12 +31,21 @@ const { 0: first, 1: second } = name.split("/");
 	c="unset visited:unset"
 	decoration="none"
 	href={link}
-	p="x-4 y-2"
+	p={external ? "l-4 r-1 y-2" : "x-4 y-2"}
 	size="w-min-16"
 	t="[background-color,border-color]-125-ease"
 	text="center"
 	{...props}
 	>{second != undefined && <span c="rosequartz dark:paledogwood">{first}/</span>}{
 		second ?? first
+	}{
+		external && (
+			<sup
+				c="rosequartz dark:paledogwood"
+				icon="tabler-external-link"
+				line-height="0"
+				m="l-1"
+			/>
+		)
 	}</a
 >
