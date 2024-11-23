@@ -41,9 +41,8 @@ const pronouns = [
 			></h1
 		>
 		<p m="0" op="65"
-			>Psst... you can just call me {name}.<br /><span op="65" text="size-0.8em"
-				>({pronouns.join("/")})</span
-			></p
+			>Psst... you can just call {entity.pronouns.object == "it" ? "it" : "me"}
+			{name}.<br /><span op="65" text="size-0.8em">({pronouns.join("/")})</span></p
 		>
 	</section>
 </MainLayout>

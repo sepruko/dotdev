@@ -1,5 +1,9 @@
 ---
 import MainLayout from "@/layouts/MainLayout";
+
+const {
+	entity: { pronouns },
+} = DotDev;
 ---
 
 <MainLayout>
@@ -9,7 +13,7 @@ import MainLayout from "@/layouts/MainLayout";
 		p="x-[clamp(1rem,3rem,5.5vw)] y-12"
 		size="w-min-full"
 	>
-		<h1 text-align="center">About Me</h1>
+		<h1 text-align="center">About {pronouns.object == "it" ? "It" : "Me"}</h1>
 		<p>I don't really know what to say here.</p>
 	</article>
 </MainLayout>
