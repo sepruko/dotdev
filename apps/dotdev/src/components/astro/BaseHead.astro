@@ -45,7 +45,7 @@ interface Props {
 export type { Props as BaseHeadProps };
 
 const {
-	title = `${Astro.site!.hostname} ~${Astro.url.pathname}`,
+	title = `~${Astro.url.pathname}`,
 	description,
 	keywords,
 	og = { title, description },
