@@ -2,8 +2,17 @@
 import MainLayout from "@/layouts/MainLayout";
 
 const {
+	entity,
 	entity: { name, full_name },
 } = DotDev;
+
+const pronouns = [
+	entity.pronouns.reference,
+	entity.pronouns.object,
+	entity.pronouns.object_self,
+	entity.pronouns.possessive,
+	entity.pronouns.associative,
+];
 ---
 
 <MainLayout
@@ -16,6 +25,23 @@ const {
 		"web development",
 		Astro.site!.hostname,
 	]}
-	>Hello, I'm {full_name}! <span text="size-0.8em">(you can just call me {name})</span
-	></MainLayout
 >
+	<section
+		id="hero"
+		flex="~ col gap-4 items-start justify-center nowrap"
+		p="x-[clamp(1rem,3rem,5.5vw)] y-12"
+		size="full"
+		text="align-left center"
+	>
+		<h1 m="0" text="size-[clamp(1.5rem,4rem,7.5vw)]"
+			>Welcome,<br />I'm {full_name}<span animate="caret" c="rosequartz dark:paledogwood"
+				>_</span
+			></h1
+		>
+		<p m="0" op="65"
+			>Psst... you can just call me {name}.<br /><span op="65" text="size-3"
+				>({pronouns.join("/")})</span
+			></p
+		>
+	</section>
+</MainLayout>

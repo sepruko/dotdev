@@ -6,7 +6,7 @@ import presetWebFonts from "@unocss/preset-web-fonts";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
 
-// cspell:words un
+// cspell:words Fns un
 
 export default {
 	preflights: [
@@ -16,6 +16,13 @@ export default {
 				`
 				:root {
 					@apply font-mono;
+					--caret-color: theme("colors.rosequartz");
+				}
+
+				@media (prefers-color-scheme: dark) {
+					:root {
+						--caret-color: theme("colors.paledogwood");
+					}
 				}
 
 				:where(*, ::before, ::after)[b*="dark:"],
@@ -138,6 +145,21 @@ export default {
 		],
 	],
 	theme: {
+		animation: {
+			counts: {
+				caret: "infinite",
+			},
+			durations: {
+				caret: "1.25s",
+			},
+			keyframes: {
+				// biome-ignore lint/nursery/noSecrets: False positive.
+				caret: "{from{color:transparent}50%{color:var(--caret-color)}to{color:transparent}}",
+			},
+			timingFns: {
+				caret: "steps(1,end)",
+			},
+		},
 		colors: {
 			isabelline: {
 				DEFAULT: "#F2E9E4",
