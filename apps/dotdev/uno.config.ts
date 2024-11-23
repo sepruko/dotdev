@@ -6,7 +6,7 @@ import presetWebFonts from "@unocss/preset-web-fonts";
 import transformerDirectives from "@unocss/transformer-directives";
 import transformerVariantGroup from "@unocss/transformer-variant-group";
 
-// cspell:words Fns un
+// cspell:words Fns ltrb un
 
 export default {
 	preflights: [
@@ -74,7 +74,7 @@ export default {
 					import("@iconify-json/tabler/icons.json").then(({ default: d }) => d),
 			},
 			extraProperties: {
-				"--at-apply": "inline-block size-min-6",
+				"--at-apply": "inline-block",
 			} satisfies CSSValueInput,
 			processor: (css): void => {
 				css["--un-icon"] = (css["--un-icon"] as string).replace(/--[a-z-]+='[^']*'/g, "");
@@ -139,6 +139,32 @@ export default {
 		'[sr-only="~"]',
 	],
 	shortcuts: [
+		[
+			/^(?:pos|position)-([ltrb])-(.+)$/,
+			([, side, value]) => {
+				switch (side) {
+					case "l": {
+						side = "left";
+						break;
+					}
+					case "t": {
+						side = "top";
+						break;
+					}
+					case "r": {
+						side = "right";
+						break;
+					}
+					case "b": {
+						side = "bottom";
+						break;
+					}
+					default: // unreachable
+				}
+
+				return `position-${side}-${value}`;
+			},
+		],
 		[
 			/^(?:size-?)?(w|width|h|height)-?(min|max)-?(.+)$/,
 			([, rule, limit, value]) => `${limit}-${rule![0]}-${value}`,

@@ -157,7 +157,12 @@ declare global {
 	 *
 	 * @see {@linkcode DotDevKnownSocialsItem}, {@linkcode DotDevDiscordSocialItem}, {@linkcode DotDevSteamSocialItem}
 	 */
-	export declare type DotDevKnownSocialsItemPlatform = "bluesky" | "discord" | "github" | "steam";
+	export declare type DotDevKnownSocialsItemPlatform =
+		| "bluesky"
+		| "discord"
+		| "discord-server"
+		| "github"
+		| "steam";
 
 	/**
 	 * A generic social item type.
@@ -168,9 +173,11 @@ declare global {
 				? DotDevKnownSocialsItem
 				: P extends "discord"
 					? DotDevDiscordSocialItem
-					: P extends "steam"
-						? DotDevSteamSocialItem
-						: never
+					: P extends "discord-server"
+						? DotDevDiscordServerSocialItem
+						: P extends "steam"
+							? DotDevSteamSocialItem
+							: never
 			: DotDevBaseSocialsItem;
 
 	/**
@@ -217,6 +224,19 @@ declare global {
 		 * The unique identifier of the profile on the social platform.
 		 */
 		id: `${number}`;
+	}
+
+	/**
+	 * A known item specifically for the `"discord-server"` platform.
+	 *
+	 * @see {@linkcode DotDevKnownSocialsItemPlatform}
+	 */
+	declare interface DotDevDiscordServerSocialItem extends DotDevDiscordSocialItem {
+		/**
+		 * An invite slug or custom string that allows people to enter the
+		 * server.
+		 */
+		invite: string;
 	}
 
 	/**

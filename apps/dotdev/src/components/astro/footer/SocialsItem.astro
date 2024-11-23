@@ -25,6 +25,12 @@ switch (platform_name) {
 		link = `https://discord.com/users/${(props as any).id}`;
 		break;
 	}
+	case "discord-server": {
+		icon = "tabler-brand-discord";
+		name = props.name;
+		link = `https://discord.com/invite/${(props as any).invite}`;
+		break;
+	}
 	case "github": {
 		icon = "tabler-brand-github";
 		name = props.name;
@@ -50,12 +56,20 @@ switch (platform_name) {
 	h="max-12"
 	href={link}
 	p="2"
+	relative="~"
 	t="[background-color,border-color]-125-ease"
 	target="_blank"
 	title=`${platform_name}: ${name}`
 	rel="noreferrer"
 >
-	{icon && <span block="~" icon={icon} />}
+	{icon && <span block="~" icon={icon} size="6" />}
+	{
+		icon && platform_name == "discord-server" && (
+			<div absolute="~" b="rd-9999" bg="seasalt dark:richblack" pos="b-2 r-2">
+				<span block="~" icon="tabler-world" pos="b-2 r-2" size="3" />
+			</div>
+		)
+	}
 	<span select={icon ? "none" : "auto"} sr-only={icon ? "~" : undefined}>
 		{icon ? name : `${platform_name}: ${name}`}
 	</span>

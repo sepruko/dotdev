@@ -9,6 +9,7 @@
 	},
 	"ignorePaths": [
 		"apps/**/dict/**.txt",
+		"apps/dotdev/dotdev.config.json",
 		"packages/**/dict/**.txt"
 	],
 	"import": [

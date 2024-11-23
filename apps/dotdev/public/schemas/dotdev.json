@@ -276,6 +276,39 @@
 							"type": "string",
 							"description": "The name of the social platform.",
 							"enum": [
+								"discord-server"
+							]
+						},
+						"name": {
+							"type": "string",
+							"description": "The name of the server on the social platform.",
+							"minLength": 2
+						},
+						"id": {
+							"type": "string",
+							"description": "The unique identifier of the server on the social platform.",
+							"pattern": "^\\d+$"
+						},
+						"invite": {
+							"type": "string",
+							"description": "An invite slug or custom string that allows people to enter the server.",
+							"minLength": 2
+						}
+					},
+					"required": [
+						"platform_name",
+						"name",
+						"id",
+						"invite"
+					]
+				},
+				{
+					"type": "object",
+					"properties": {
+						"platform_name": {
+							"type": "string",
+							"description": "The name of the social platform.",
+							"enum": [
 								"steam"
 							]
 						},
