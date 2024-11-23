@@ -17,6 +17,6 @@ export type { Props as SocialsProps };
 const { items } = Astro.props;
 ---
 
-<div flex="~ gap-2 items-center justify-center nowrap row">
+<div flex="~ gap-2 items-center justify-center row wrap">
 	{items.map((item) => <SocialsItem {...item} />)}
 </div>
