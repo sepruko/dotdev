@@ -6,6 +6,8 @@ const {
 	entity: { name, full_name },
 } = DotDev;
 
+const description = `${full_name}'s personal website.'`;
+
 const pronouns = [
 	entity.pronouns.reference,
 	entity.pronouns.object,
@@ -16,7 +18,7 @@ const pronouns = [
 ---
 
 <MainLayout
-	description=`${full_name}'s personal website.'`
+	description={description}
 	keywords={[
 		...full_name.toLowerCase().split(" "),
 		"webdev",
@@ -24,6 +26,7 @@ const pronouns = [
 		"web development",
 		Astro.site!.hostname,
 	]}
+	og={{ title: Astro.site!.hostname, description }}
 >
 	<section
 		id="hero"
