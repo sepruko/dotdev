@@ -3,10 +3,14 @@ import type { AttributifyAttributes } from "@unocss/preset-attributify";
 declare module "@unocss/preset-attributify" {
 	interface AttributifyAttributes {
 		b?: string | boolean;
+		bottom?: string | boolean;
 		c?: string | boolean;
 		decoration?: string | boolean;
+		left?: string | boolean;
+		right?: string | boolean;
 		self?: string | boolean;
 		t?: string | boolean;
+		top?: string | boolean;
 	}
 }
 
