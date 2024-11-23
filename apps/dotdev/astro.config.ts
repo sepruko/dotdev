@@ -7,6 +7,9 @@ import { readFile } from "node:fs/promises";
 
 // cspell:words mpa
 
+/**
+ * The Astro configuration for the `@sepruko/dotdev` project.
+ */
 export default {
 	build: {
 		assets: "resources/",
@@ -58,6 +61,9 @@ export default {
 	},
 } as AstroUserConfig;
 
+/**
+ * The Astro integration for registering and auto-updating the `DotDev` global.
+ */
 function dotdev(): AstroIntegration {
 	return {
 		name: "@sepruko/dotdev/integration",
