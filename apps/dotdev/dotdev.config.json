@@ -24,6 +24,10 @@
 		{
 			"name": "~/about",
 			"link": "/about"
+		},
+		{
+			"name": "source code",
+			"link": "https://github.com/sepruko/dotdev"
 		}
 	],
 	"socials": [
