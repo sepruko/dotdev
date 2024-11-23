@@ -2,6 +2,14 @@
 import MainLayout from "@/layouts/MainLayout";
 ---
 
-<MainLayout
-	>Hello, I'm Nat Sepruko! <span text="size-0.8em">(you can just call me Nat)</span></MainLayout
->
+<MainLayout>
+	<article
+		flex="~ col gap-4 grow-1 items-center justify-start nowrap"
+		m="[&>*]:0"
+		p="x-[clamp(1rem,3rem,5.5vw)] y-12"
+		size="w-min-full"
+	>
+		<h1 text-align="center">About Me</h1>
+		<p>I don't really know what to say here.</p>
+	</article>
+</MainLayout>
