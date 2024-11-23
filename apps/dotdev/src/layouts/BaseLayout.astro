@@ -11,7 +11,7 @@ export type { Props as BaseLayoutProps };
 const { ...props } = Astro.props;
 ---
 
-<html lang="en-US" prefix="og: https://ogp.me/ns#">
+<html lang="en-US" overflow="x-clip" prefix="og: https://ogp.me/ns#">
 	<BaseHead {...props}>
 		<slot name="pre-head" slot="pre" />
 		<meta name="theme-color" content="#11111e" slot="head" />
@@ -22,7 +22,7 @@ const { ...props } = Astro.props;
 		c="ultraviolet dark:isabelline"
 		flex="~ col items-center justify-start nowrap"
 		size="h-(fit min-vh)"
-		overflow="x-hidden"
+		overflow="x-clip"
 	>
 		{
 			Astro.slots.has("header") && (
@@ -32,6 +32,7 @@ const { ...props } = Astro.props;
 					bg="seasalt/70 dark:richblack/85"
 					flex="~ gap-4 items-center justify-start row wrap"
 					left="0"
+					overflow="x-auto"
 					pos="t-0"
 					size="w-full"
 					sticky="~"
