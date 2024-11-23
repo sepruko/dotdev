@@ -35,7 +35,8 @@
 		"build": "astro build",
 		"dev": "astro dev",
 		"prepare": "astro sync",
-		"preview": "astro build && astro preview"
+		"preview": "astro build && astro preview",
+		"sync": "astro sync"
 	},
 	"devDependencies": {
 		"@astrojs/mdx": "^3.1.9",
