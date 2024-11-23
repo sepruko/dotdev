@@ -5,6 +5,7 @@
 		"@sepruko/config/typescript/strict"
 	],
 	"compilerOptions": {
+		"exactOptionalPropertyTypes": false,
 		"jsx": "preserve",
 		"jsxImportSource": "solid-js",
 		"paths": {
