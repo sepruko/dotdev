@@ -6,7 +6,7 @@ interface Props extends DotDevEntity {}
 
 export type { Props as CopyrightHolderProps };
 
-const { name, link } = Astro.props;
+const { full_name, link } = Astro.props;
 
 const url = link ? new URL(/^https?:\/\//.test(link) ? link : `${Astro.url.origin}${link}`) : null;
 const ext = url?.origin != Astro.url.origin;
@@ -21,9 +21,9 @@ const ext = url?.origin != Astro.url.origin;
 			target={ext ? undefined : "_blank"}
 			rel={ext ? undefined : "noreferrer"}
 		>
-			{name}
+			{full_name}
 		</a>
 	) : (
-		name
+		full_name
 	)
 }
