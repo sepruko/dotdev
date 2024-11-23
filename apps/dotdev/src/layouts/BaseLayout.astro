@@ -14,6 +14,7 @@ const { ...props } = Astro.props;
 <html lang="en-US" prefix="og: https://ogp.me/ns#">
 	<BaseHead {...props}>
 		<slot name="pre-head" slot="pre" />
+		<meta name="theme-color" content="#11111e" slot="head" />
 		<slot name="head" />
 	</BaseHead>
 	<body
