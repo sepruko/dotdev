@@ -20,6 +20,17 @@ const { ...props } = Astro.props;
 	<slot name="pre-header" slot="header" />
 	<BaseNav slot="header" />
 	<slot name="header" slot="header" />
+	<img
+		absolute="~"
+		alt=""
+		op="10"
+		pos="t-50% r-[clamp(1rem,3rem,5.5vw)] portrait:r-50%"
+		select="none"
+		size="h-max-50vh w-max-80vw"
+		src="/resources/nat-ghoshouse.webp"
+		transform="translate-(x--[clamp(1rem,3rem,5.5vw)] y--50%) portrait:translate-x-50%"
+		z="-1"
+	/>
 	<slot />
 	<slot name="pre-footer" slot="footer" />
 	<BaseFooter slot="footer" />
