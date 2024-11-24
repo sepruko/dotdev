@@ -26,7 +26,7 @@
 		"url": "git+https://github.com/sepruko/dotdev.git"
 	},
 	"scripts": {
-		"check": "biome check . && prettier -c .",
+		"check": "biome check . && prettier -c . && cspell lint -u --words-only .",
 		"check:fix": "biome check --write . && prettier -w .",
 		"format": "biome format --write . && prettier -w ."
 	},
