@@ -143,6 +143,15 @@ export default {
 	],
 	safelist: ['[select="auto"]', '[select="none"]', '[sr-only="~"]'],
 	shortcuts: [
+		[/^(?:c|color)-(?:bg|background)-(.+)$/, ([, value]) => `bg-${value}`],
+		[
+			/^flex-(center|end|start)(?:-(around|between|center|end|start))?$/,
+			([, align, justify = align]) => `flex-items-${align} flex-justify-${justify}`,
+		],
+		[
+			/^flex-(col|col-reverse|column|column-reverse|row|row-reverse)(?:-(wrap|nowrap))?$/,
+			([, direction, wrap = "nowrap"]) => `flex-${direction} flex-${wrap}`,
+		],
 		[
 			/^(?:pos|position)-([ltrb])-(.+)$/,
 			([, side, value]) => {

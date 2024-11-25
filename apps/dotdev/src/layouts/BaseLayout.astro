@@ -2,7 +2,7 @@
 import BaseHead, { type BaseHeadProps } from "@/components/seo/BaseHead";
 
 /**
- * Properties to pass to the {@linkcode MainLayout} layout.
+ * Properties to pass to the {@linkcode BaseLayout} layout.
  */
 interface Props extends BaseHeadProps {}
 
@@ -11,29 +11,26 @@ export type { Props as BaseLayoutProps };
 const { ...props } = Astro.props;
 ---
 
-<html lang="en-US" overflow="x-clip" prefix="og: https://ogp.me/ns#">
+<html lang="en-US" prefix="og: https://ogp.me/ns#">
 	<BaseHead {...props}>
 		<slot name="pre-head" slot="pre" />
-		<meta name="theme-color" content="#11111e" slot="head" />
+		<meta name="theme-color" content="#11111e" />
 		<slot name="head" />
 	</BaseHead>
 	<body
-		bg="seasalt dark:richblack"
-		c="ultraviolet dark:isabelline"
-		flex="~ col items-center justify-start nowrap"
-		size="h-(fit min-vh)"
+		c="bg-seasalt ultraviolet dark:(bg-richblack isabelline)"
+		flex="~ col center-start"
 		overflow="x-clip"
 	>
 		{
 			Astro.slots.has("header") && (
 				<header
-					b="b-(1 solid) ultraviolet/50"
+					b="b-(2 dashed) ultraviolet/50"
 					backdrop="blur-4"
-					bg="seasalt/70 dark:richblack/85"
-					flex="~ gap-4 items-center justify-start row wrap"
-					left="0"
+					c="bg-seasalt/70 dark:bg-richblack/85"
+					flex="~ gap-4 row center-start"
 					overflow="x-auto"
-					pos="t-0"
+					pos="l-0 t-0"
 					size="w-full"
 					sticky="~"
 				>
@@ -41,17 +38,13 @@ const { ...props } = Astro.props;
 				</header>
 			)
 		}
-		<main flex="~ col grow-1 items-center justify-start nowrap" size="w-full"><slot /></main>
+		<main flex="~ col grow-1 center-start" size="w-full"><slot /></main>
 		{
 			Astro.slots.has("footer") && (
-				<footer
-					b="t-(1 solid) ultraviolet/50"
-					flex="~ gap-4 items-center justify-center row wrap"
-					size="w-full"
-				>
+				<footer b="t-(2 dashed) ultraviolet/50" flex="~ gap-4 center row" size="w-full">
 					<slot name="footer" />
 				</footer>
 			)
 		}
-	</body>{/* for idyllic formatting --> */}<Fragment></Fragment>
+	</body>{/* for idyllic formatting */}
 </html>
