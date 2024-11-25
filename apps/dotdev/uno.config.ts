@@ -264,7 +264,20 @@ function presetDotDev(): UnoPreset<Theme> {
 			options.safelist.push(
 				...platforms
 					.map((p) => p.replace(/-server$/, ""))
-					.map((p) => `[icon~="tabler-brand-${p}"]`),
+					.map((p) => {
+						switch (p) {
+							case "ko-fi": {
+								p = "tabler-coffee";
+								break;
+							}
+							default: {
+								p = `tabler-brand-${p}`;
+								break;
+							}
+						}
+
+						return `[icon~="${p}"]`;
+					}),
 			);
 		},
 	};

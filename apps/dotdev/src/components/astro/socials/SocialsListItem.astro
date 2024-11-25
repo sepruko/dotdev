@@ -37,6 +37,12 @@ switch (platform_name) {
 		link = `https://github.com/${name}`;
 		break;
 	}
+	case "ko-fi": {
+		icon = "tabler-coffee";
+		name = props.name;
+		link = `https://ko-fi.com/${name}`;
+		break;
+	}
 	case "steam": {
 		icon = "tabler-brand-steam";
 		name = (props as any).id;

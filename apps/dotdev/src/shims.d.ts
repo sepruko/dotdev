@@ -162,6 +162,7 @@ declare global {
 		| "discord"
 		| "discord-server"
 		| "github"
+		| "ko-fi"
 		| "steam";
 
 	/**
@@ -169,8 +170,8 @@ declare global {
 	 */
 	export declare type DotDevSocialsItem<P extends string = string> =
 		P extends DotDevKnownSocialsItemPlatform
-			? P extends "bluesky" | "github"
-				? DotDevKnownSocialsItem
+			? P extends "bluesky" | "github" | "ko-fi"
+				? DotDevKnownSocialsItem<P>
 				: P extends "discord"
 					? DotDevDiscordSocialItem
 					: P extends "discord-server"
@@ -210,8 +211,8 @@ declare global {
 	 *
 	 * @see {@linkcode DotDevKnownSocialsItemPlatform}
 	 */
-	declare interface DotDevKnownSocialsItem
-		extends Exclude<DotDevBaseSocialsItem<"bluesky" | "github">, "link"> {}
+	declare interface DotDevKnownSocialsItem<P extends DotDevKnownSocialsItemPlatform>
+		extends Exclude<DotDevBaseSocialsItem<P>, "link"> {}
 
 	/**
 	 * A known item specifically for the `"discord"` platform.
