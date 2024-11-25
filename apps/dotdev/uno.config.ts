@@ -143,8 +143,8 @@ export default {
 			([, align, justify = align]) => `flex-items-${align} flex-justify-${justify}`,
 		],
 		[
-			/^flex-(col|col-reverse|column|column-reverse|row|row-reverse)(?:-(wrap|nowrap))?$/,
-			([, direction, wrap = "nowrap"]) => `flex-${direction} flex-${wrap}`,
+			/^flex-(col|col-reverse|row|row-reverse)-(wrap|nowrap)$/,
+			([, direction, wrap]) => `flex-${direction} flex-${wrap}`,
 		],
 		[
 			/^(?:pos|position)-([ltrb])-(.+)$/,
