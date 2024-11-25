@@ -135,7 +135,7 @@ export default {
 			},
 		],
 	],
-	safelist: ['[select="auto"]', '[select="none"]', '[sr-only="~"]'],
+	safelist: ['[select~="auto"]', '[select~="none"]', '[sr-only~="~"]'],
 	shortcuts: [
 		[/^(?:c|color)-(?:bg|background)-(.+)$/, ([, value]) => `bg-${value}`],
 		[
@@ -244,13 +244,14 @@ function presetDotDev(): UnoPreset<Theme> {
 				return;
 			}
 
+			const platforms = [
+				...new Set(Object.values(DotDev.socials).map((s: any) => s.platform_name)),
+			] as string[];
+
 			options.safelist.push(
-				...new Set(
-					Object.values(DotDev.socials).map(
-						(s: any) =>
-							`[icon="tabler-brand-${s.platform_name.replace("discord-server", "discord")}"]`,
-					),
-				),
+				...platforms
+					.map((p) => p.replace(/-server$/, ""))
+					.map((p) => `[icon~="tabler-brand-${p}"]`),
 			);
 		},
 	};
