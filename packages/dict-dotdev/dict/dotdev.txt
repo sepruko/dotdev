@@ -1,8 +1,9 @@
 # products
-DOTDEV		DotDev		dotdev
+DOTDEV			DotDev			dotdev
 
 # colors
-ISABELLINE	Isabelline	isabelline
+CAROLINABLUE	CarolinaBlue	carolinablue
+ISABELLINE		Isabelline		isabelline
 
 # terms
-SEO						seo
+SEO								seo
