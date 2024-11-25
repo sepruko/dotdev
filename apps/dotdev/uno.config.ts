@@ -17,13 +17,7 @@ export default {
 				`
 				:root {
 					@apply font-mono;
-					--caret-color: theme("colors.rosequartz");
-				}
-
-				@media (prefers-color-scheme: dark) {
-					:root {
-						--caret-color: theme("colors.paledogwood");
-					}
+					--caret-color: theme('colors.carolinablue');
 				}
 
 				:where(*, ::before, ::after)[b*="dark:"],
@@ -200,6 +194,9 @@ export default {
 			},
 		},
 		colors: {
+			carolinablue: {
+				DEFAULT: "#6DADD8",
+			},
 			isabelline: {
 				DEFAULT: "#F2E9E4",
 			},
