@@ -3,3 +3,6 @@ DOTDEV		DotDev		dotdev
 
 # colors
 ISABELLINE	Isabelline	isabelline
+
+# terms
+SEO						seo
