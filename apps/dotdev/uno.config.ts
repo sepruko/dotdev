@@ -10,6 +10,9 @@ import { readFileSync } from "node:fs";
 // cspell:words Fns ltrb un
 
 export default {
+	// Somehow UnoCSS or one of the transformers is incorrectly parsing the
+	// source and finding this in there.
+	blocklist: ["w-min-16-t="],
 	preflights: [
 		{
 			layer: "preflights",
@@ -99,6 +102,16 @@ export default {
 		}),
 	],
 	rules: [
+		[
+			/^animate-name-(.+)$/,
+			function* ([, name], { theme }): Generator<string | CSSValueInput> {
+				const keyframes = theme.animation?.keyframes?.[name!];
+				if (keyframes) {
+					yield `@keyframes ${name}${keyframes}`;
+					yield { "animation-name": name };
+				}
+			},
+		],
 		[
 			/^content-?\[(.+)\]$/,
 			function* ([, content]): Generator<string | CSSValueInput> {
@@ -245,7 +258,7 @@ function presetDotDev(): UnoPreset<Theme> {
 			}
 
 			const platforms = [
-				...new Set(DotDev.socials.map((s: any) => s.platform_name)),
+				...new Set(Object.values(DotDev.socials).map((s: any) => s.platform_name)),
 			] as string[];
 
 			options.safelist.push(

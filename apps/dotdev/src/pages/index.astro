@@ -29,18 +29,30 @@ const pronouns = [
 	og={{ title: Astro.site!.hostname, description }}
 >
 	<section
+		flex="~ col-nowrap grow-1 start-center"
 		id="hero"
-		flex="~ col-nowrap gap-4 grow-1 start-center"
 		p="x-[clamp(1rem,3rem,5.5vw)] y-12"
 		size="full"
 		text="align-left"
 	>
-		<h1 m="0" text="size-[clamp(1.5rem,4rem,7.5vw)]"
-			>Welcome,<br />I'm {full_name}<span animate="caret">_</span></h1
+		<div
+			animate="delay-150 duration-850 forwards name-fade-in-up"
+			flex="~ col-nowrap gap-4 start-center"
+			op="0"
 		>
-		<p m="0" op="65"
-			>Psst... you can just call {entity.pronouns.object == "it" ? "it" : "me"}
-			{name}.<br /><span op="65" text="size-0.8em">({pronouns.join("/")})</span></p
-		>
+			<h1 m="0" text="size-[clamp(1.5rem,4rem,7.5vw)]"
+				>Welcome,<br />I'm {full_name}<span animate="caret">_</span></h1
+			>
+			<p
+				animate="delay-500 duration-850 forwards name-fade-in-up"
+				c="ultraviolet/65 dark:isabelline/65"
+				m="0"
+				op="0"
+				>Psst... you can just call {entity.pronouns.object == "it" ? "it" : "me"}
+				{name}.<br /><span c="ultraviolet/42 dark:isabelline/42" text="size-0.8em"
+					>({pronouns.join("/")})</span
+				></p
+			>
+		</div>
 	</section>
 </MainLayout>
