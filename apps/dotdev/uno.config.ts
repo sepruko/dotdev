@@ -245,7 +245,7 @@ function presetDotDev(): UnoPreset<Theme> {
 			}
 
 			const platforms = [
-				...new Set(Object.values(DotDev.socials).map((s: any) => s.platform_name)),
+				...new Set(DotDev.socials.map((s: any) => s.platform_name)),
 			] as string[];
 
 			options.safelist.push(
