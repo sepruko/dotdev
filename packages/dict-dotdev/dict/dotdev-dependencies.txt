@@ -19,3 +19,6 @@ JXR					jxr
 
 # fonts
 		Gantari
+
+# services
+					ko-fi
