@@ -17,11 +17,15 @@ const { ...props } = Astro.props;
 
 <BaseLayout {...props}>
 	<ViewTransitions fallback="none" slot="head" />
-	<slot name="pre-header" slot="header" />
-	<BaseNav slot="header" />
-	<slot name="header" slot="header" />
+	<Fragment slot="header">
+		<slot name="pre-nav" />
+		<BaseNav />
+		<slot name="header" />
+	</Fragment>
 	<slot />
-	<slot name="pre-footer" slot="footer" />
-	<BaseFooter slot="footer" />
-	<slot name="footer" slot="footer" />
+	<Fragment slot="footer">
+		<slot name="pre-footer" />
+		<BaseFooter />
+		<slot name="footer" />
+	</Fragment>
 </BaseLayout>
