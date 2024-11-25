@@ -48,7 +48,7 @@ importers:
         specifier: ~0.5.2
         version: 0.5.2(@biomejs/biome@1.9.4)(@types/node@22.9.3)(cspell@8.16.0)(typescript@5.6.3)
       '@types/node':
-        specifier: ^22.9.2
+        specifier: ^22.9.3
         version: 22.9.3
       '@unocss/astro':
         specifier: ~0.64.1
