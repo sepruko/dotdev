@@ -3,18 +3,29 @@ import MainLayout from "@/layouts/MainLayout";
 import { getEntry, render } from "astro:content";
 
 const {
-	entity: { pronouns },
+	entity: { full_name, pronouns },
 } = DotDev;
 
 const about = await getEntry("entity", "about");
 const { Content } = await render(about);
 ---
 
-<MainLayout>
+<MainLayout
+	keywords={[
+		...full_name.toLowerCase().split(" "),
+		"dev",
+		"development",
+		"web",
+		"webdev",
+		"webdevelopment",
+		"web development",
+		Astro.site!.hostname,
+	]}
+>
 	<article
-		flex="~ center-start col-nowrap gap-4 grow-1"
-		m="[&>*]:0"
-		p="x-[clamp(1rem,3rem,5.5vw)] y-12"
+		flex="~ start col-nowrap grow-1"
+		m="[&>*:first-child]:t-0 [&>*:last-child]:b-0"
+		p="x-[clamp(2rem,16rem,20vw)] portrait:x-[clamp(2rem,3rem,5.5vw)] y-12"
 		size="w-min-full"
 	>
 		<h1 text-align="center">About {pronouns.object == "it" ? "It" : "Me"}</h1>
