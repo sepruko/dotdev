@@ -32,18 +32,18 @@ const pronouns = [
 	og={{ title: Astro.site!.hostname, description }}
 >
 	<section
-		flex="~ col-nowrap grow-1 start-center"
+		flex="~ col-nowrap grow-1 start-center portrait:center"
 		id="hero"
 		p="x-[clamp(2rem,3rem,5.5vw)] y-12"
 		size="full"
-		text="align-left"
+		text="left portrait:center"
 	>
 		<div
 			animate="delay-150 duration-850 forwards name-fade-in-up"
-			flex="~ col-nowrap gap-4 start-center"
+			flex="~ col-nowrap gap-4 start-center portrait:center"
 			op="0"
 		>
-			<h1 m="0" text="size-[clamp(1.5rem,4rem,7.5vw)]"
+			<h1 m="0" text="size-[clamp(2rem,4rem,8vw)]"
 				>Welcome,<br />I'm {full_name}<span animate="caret">_</span></h1
 			>
 			<p
