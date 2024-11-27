@@ -12,7 +12,7 @@
 	"overrides": [
 		{
 			"files": [
-				"*.astro"
+				"**.astro"
 			],
 			"options": {
 				"parser": "astro"
@@ -20,10 +20,10 @@
 		},
 		{
 			"files": [
-				"*.md",
-				"*.mdx",
-				"*.yaml",
-				"*.yml"
+				"**.md",
+				"**.mdx",
+				"**.yaml",
+				"**.yml"
 			],
 			"options": {
 				"printWidth": 80,
