@@ -1,4 +1,4 @@
-# `dotdev`
+# `sepruko.dev`
 
 This repository contains the source code and content for generating the
 [sepruko.dev] website.
