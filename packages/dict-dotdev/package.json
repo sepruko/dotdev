@@ -36,8 +36,7 @@
 		"cspell": "^8.16.0"
 	},
 	"engines": {
-		"node": ">=22.11.0",
-		"pnpm": "^9.13.0"
+		"node": ">=22.11.0"
 	},
 	"devEngines": {
 		"runtime": {
@@ -47,9 +46,10 @@
 		},
 		"packageManager": {
 			"name": "pnpm",
-			"version": "^9.13.0",
+			"version": "^9.14.2",
 			"onFail": "error"
 		}
 	},
-	"private": true
+	"private": true,
+	"packageManager": "pnpm@9.14.2"
 }
