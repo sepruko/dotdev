@@ -42,7 +42,7 @@
 		"@astrojs/mdx": "^4.0.1",
 		"@astrojs/solid-js": "^5.0.0",
 		"@iconify-json/tabler": "^1.2.8",
-		"@sepruko/config": "~0.5.2",
+		"@sepruko/config": "~0.5.3",
 		"@types/node": "^22.9.3",
 		"@unocss/astro": "~0.65.0",
 		"@unocss/core": "~0.65.0",
