@@ -63,6 +63,7 @@
 			"sharp"
 		],
 		"overrides": {
+			"solid-devtools>vite": "^6.0.0",
 			"typescript": "$typescript"
 		}
 	}

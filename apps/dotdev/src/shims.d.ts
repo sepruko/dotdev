@@ -1,3 +1,5 @@
+/// <reference path="../.astro/types.d.ts" />
+
 import type { AttributifyAttributes } from "@unocss/preset-attributify";
 
 declare module "@unocss/preset-attributify" {

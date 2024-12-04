@@ -1,8 +1,7 @@
 import mdx from "@astrojs/mdx";
 import solid from "@astrojs/solid-js";
 import unocss from "@unocss/astro";
-import type { AstroIntegration } from "astro";
-import type { AstroUserConfig } from "astro/config";
+import type { AstroIntegration, AstroUserConfig } from "astro";
 import { readFile } from "node:fs/promises";
 
 // cspell:words mpa
@@ -20,11 +19,7 @@ export default {
 	},
 	experimental: {
 		clientPrerender: true,
-		contentCollectionCache: true,
 		contentIntellisense: true,
-		contentLayer: true,
-		directRenderScript: true,
-		globalRoutePriority: true,
 	},
 	i18n: {
 		defaultLocale: "en-US",

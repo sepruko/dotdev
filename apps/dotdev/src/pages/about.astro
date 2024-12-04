@@ -1,12 +1,14 @@
 ---
 import MainLayout from "@/layouts/MainLayout";
-import { getEntry, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 
 const {
 	entity: { full_name, pronouns },
 } = DotDev;
 
-const about = await getEntry("entity", "about");
+console.log(await getCollection("entity"));
+
+const about = await getEntry("entity", "about")!;
 const { Content } = await render(about);
 ---
 

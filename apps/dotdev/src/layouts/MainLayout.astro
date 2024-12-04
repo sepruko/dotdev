@@ -3,7 +3,7 @@ import BaseFooter from "@/components/footer/BaseFooter";
 import BaseNav from "@/components/nav/BaseNav";
 import type { BaseLayoutProps } from "@/layouts/BaseLayout";
 import BaseLayout from "@/layouts/BaseLayout";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 /**
  * Properties to pass to the {@linkcode MainLayout} layout.
@@ -16,7 +16,7 @@ const { ...props } = Astro.props;
 ---
 
 <BaseLayout {...props}>
-	<ViewTransitions fallback="none" slot="head" />
+	<ClientRouter fallback="none" slot="head" />
 	<Fragment slot="header">
 		<slot name="pre-nav" />
 		<BaseNav />
